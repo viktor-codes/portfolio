@@ -107,18 +107,21 @@ export const HeroSection = () => {
             <div className="relative bg-green-500 size-2.5 rounded-full">
               <div className="absolute inset-0 animate-ping-large bg-green-500 size-2.5 rounded-full"></div>
             </div>
-            <div className="text-sm font-medium">
+            <div className="text-sm font-medium ">
               Available for new projects
             </div>
           </div>
         </div>
         <div className="max-w-lg mx-auto">
-          <h1 className="font-serif text-3xl text-center mt-8 tracking-wide md:text-5xl">
-            Building exceptional user experience
+          <h1 className="font-serif text-3xl text-center mt-6 line-height-1.5 tracking-wide md:text-5xl text-balance">
+            Websites and integrations for small businesses
+            <br />
+            <span className="text-emerald-500">built to ship</span>
           </h1>
           <p className="mt-4 text-center text-white/60 md:text-lg">
-            I specialize in transforming designs into functional,
-            high-performing web applications. Let's discuss your next project.
+            I’m Viktor Rura, a full-stack developer in the Irish Midlands. Fast
+            Next.js sites, solid APIs, forms, email, and light integrations —
+            clear scope, no fluff.
           </p>
         </div>
         <div className="flex flex-col md:flex-row justify-center items-center mt-8 gap-4">
