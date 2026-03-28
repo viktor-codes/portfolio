@@ -23,11 +23,14 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { useRef } from "react";
 
-const toolboxItems = [
+const toolboxFrontendItems = [
   { title: "Next.js", iconType: NextJsIcon },
   { title: "React", iconType: ReactIcon },
   { title: "TypeScript", iconType: TypeScriptIcon },
   { title: "Tailwind CSS", iconType: TailwindCssIcon },
+];
+
+const toolboxBackendItems = [
   { title: "FastAPI", iconType: FastAPIIcon },
   { title: "Python", iconType: PythonIcon },
   { title: "Pydantic", iconType: PydanticIcon },
@@ -113,13 +116,13 @@ export const AboutSection = () => {
               />
               <ToolboxItems
                 className=""
-                items={toolboxItems}
-                itemsWrapperClassName="animate-move-left [animation-duration:30s]"
+                items={toolboxFrontendItems}
+                itemsWrapperClassName="animate-move-left [animation-duration:60s]"
               />
               <ToolboxItems
                 className="mt-6"
-                itemsWrapperClassName="-translate-x-1/2 animate-move-right [animation-duration:15s]"
-                items={toolboxItems}
+                items={toolboxBackendItems}
+                itemsWrapperClassName="-translate-x-1/2 animate-move-right [animation-duration:45s]"
               />
             </Card>
           </div>
