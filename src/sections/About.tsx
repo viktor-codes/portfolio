@@ -1,11 +1,17 @@
 "use client";
 
-import ChromeIcon from "@/assets/icons/chrome.svg";
-import CssIcon from "@/assets/icons/css3.svg";
-import GithubIcon from "@/assets/icons/github.svg";
-import HTMLIcon from "@/assets/icons/html5.svg";
+import DirectusIcon from "@/assets/icons/directus.svg";
+import DockerIcon from "@/assets/icons/docker.svg";
+import FastAPIIcon from "@/assets/icons/fastapi.svg";
+import NextJsIcon from "@/assets/icons/nextjs.svg";
+import PostgreSQLIcon from "@/assets/icons/postgresql.svg";
+import PydanticIcon from "@/assets/icons/pydantic.svg";
+import PythonIcon from "@/assets/icons/python.svg";
 import ReactIcon from "@/assets/icons/react.svg";
-import JavascriptIcon from "@/assets/icons/square-js.svg";
+import SQLAlchemyIcon from "@/assets/icons/sqlalchemy.svg";
+import TailwindCssIcon from "@/assets/icons/tailwindcss.svg";
+import TypeScriptIcon from "@/assets/icons/typescript.svg";
+import VercelIcon from "@/assets/icons/vercel.svg";
 import bookImage from "@/assets/images/book-cover.png";
 import mapImage from "@/assets/images/map.png";
 import smileMemoji from "@/assets/images/Subject 2.png";
@@ -18,30 +24,18 @@ import Image from "next/image";
 import { useRef } from "react";
 
 const toolboxItems = [
-  {
-    title: "JavaScript",
-    iconType: JavascriptIcon,
-  },
-  {
-    title: "HTML5",
-    iconType: HTMLIcon,
-  },
-  {
-    title: "CSS3",
-    iconType: CssIcon,
-  },
-  {
-    title: "React",
-    iconType: ReactIcon,
-  },
-  {
-    title: "Chrome",
-    iconType: ChromeIcon,
-  },
-  {
-    title: "Github",
-    iconType: GithubIcon,
-  },
+  { title: "Next.js", iconType: NextJsIcon },
+  { title: "React", iconType: ReactIcon },
+  { title: "TypeScript", iconType: TypeScriptIcon },
+  { title: "Tailwind CSS", iconType: TailwindCssIcon },
+  { title: "FastAPI", iconType: FastAPIIcon },
+  { title: "Python", iconType: PythonIcon },
+  { title: "Pydantic", iconType: PydanticIcon },
+  { title: "PostgreSQL", iconType: PostgreSQLIcon },
+  { title: "SQLAlchemy", iconType: SQLAlchemyIcon },
+  { title: "Directus", iconType: DirectusIcon },
+  { title: "Vercel", iconType: VercelIcon },
+  { title: "Docker", iconType: DockerIcon },
 ];
 
 const hobbies = [
