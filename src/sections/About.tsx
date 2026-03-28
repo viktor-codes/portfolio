@@ -24,8 +24,8 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { useRef } from "react";
 
-const STARTER_OFFER_PDF_HREF = "/Starter-Offer-Viktor-Rura.pdf";
-const STARTER_OFFER_PDF_FILENAME = "Starter-Offer-Viktor-Rura.pdf";
+const STARTER_OFFER_PDF_HREF = "/ruramade-proposal.pdf";
+const STARTER_OFFER_PDF_FILENAME = "ruramade-proposal.pdf";
 
 const toolboxFrontendItems = [
   { title: "Next.js", iconType: NextJsIcon },
