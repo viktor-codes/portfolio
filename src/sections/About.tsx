@@ -3,6 +3,7 @@
 import DirectusIcon from "@/assets/icons/directus.svg";
 import DockerIcon from "@/assets/icons/docker.svg";
 import FastAPIIcon from "@/assets/icons/fastapi.svg";
+import MapPinIcon from "@/assets/icons/map-pin.svg";
 import NextJsIcon from "@/assets/icons/nextjs.svg";
 import PostgreSQLIcon from "@/assets/icons/postgresql.svg";
 import PydanticIcon from "@/assets/icons/pydantic.svg";
@@ -12,7 +13,7 @@ import SQLAlchemyIcon from "@/assets/icons/sqlalchemy.svg";
 import TailwindCssIcon from "@/assets/icons/tailwindcss.svg";
 import TypeScriptIcon from "@/assets/icons/typescript.svg";
 import VercelIcon from "@/assets/icons/vercel.svg";
-import bookImage from "@/assets/images/offer.png";
+import bookImage from "@/assets/images/offer2.png";
 import mapImage from "@/assets/images/map.png";
 import smileMemoji from "@/assets/images/Subject 2.png";
 import { Card } from "@/components/Card";
@@ -22,6 +23,9 @@ import { ToolboxItems } from "@/components/ToolboxItems";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { useRef } from "react";
+
+const STARTER_OFFER_PDF_HREF = "/Starter-Offer-Viktor-Rura.pdf";
+const STARTER_OFFER_PDF_FILENAME = "Starter-Offer-Viktor-Rura.pdf";
 
 const toolboxFrontendItems = [
   { title: "Next.js", iconType: NextJsIcon },
@@ -98,15 +102,21 @@ export const AboutSection = () => {
         />
         <div className="mt-20 flex flex-col gap-8">
           <div className="grid grid-cols-1 gap-8 md:grid-cols-5 lg:grid-cols-3">
-            <Card className="h-[320px] md:col-span-2 lg:col-span-1">
-              <CardHeader
-                title="Starter Offer"
-                description="A complete roadmap to transform your idea into a high-performance MVP"
-              />
-              <div className="w-40 mx-auto mt-2 md:mt-0">
-                <Image src={bookImage} alt="Book cover" />
-              </div>
-            </Card>
+            <a
+              href={STARTER_OFFER_PDF_HREF}
+              download={STARTER_OFFER_PDF_FILENAME}
+              className="group block md:col-span-2 lg:col-span-1 rounded-3xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-400"
+            >
+              <Card className="h-[320px] cursor-pointer transition-[background-color,box-shadow] group-hover:bg-gray-800/80 group-hover:ring-1 group-hover:ring-white/10">
+                <CardHeader
+                  title="Starter Offer"
+                  description="Get your website live in 10 days for a fixed fee. Click to download the full process"
+                />
+                <div className="w-40 mx-auto mt-2 md:mt-0 pointer-events-none">
+                  <Image src={bookImage} alt="Starter offer PDF preview" />
+                </div>
+              </Card>
+            </a>
             <Card className="h-[320px] md:col-span-3 lg:col-span-2">
               <CardHeader
                 className=""
@@ -128,8 +138,8 @@ export const AboutSection = () => {
           <div className="grid grid-cols-1 gap-8 md:grid-cols-5 lg:grid-cols-3">
             <Card className="h-[320px] flex flex-col md:col-span-3 lg:col-span-2">
               <CardHeader
-                title="Beyond the Code"
-                description="Explore my interests and hobbies beyond the digital."
+                title="Life Outside Logice"
+                description="From the ocean waves to the kitchen..."
                 className="px-6 py-6"
               />
 
@@ -156,10 +166,15 @@ export const AboutSection = () => {
             <Card className="h-[320px] p-0 relative md:col-span-2 lg:col-span-1">
               <Image
                 src={mapImage}
-                alt="map"
+                alt="Map — based in the Irish Midlands, Ireland"
                 className="h-full object-cover object-left-top"
               />
-              <div className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 size-20 rounded-full  after:content[""] after:inset-0 after:outline after:outline-2 after:-outline-offset-2 after:rounded-full after:outline-gray-950/30'></div>
+              <div
+                className="absolute top-1/3 left-1/2 -translate-x-1/5 -translate-y-1/2"
+                aria-hidden
+              >
+                <MapPinIcon className="size-16 text-gray-800" />
+              </div>
             </Card>
           </div>
         </div>
