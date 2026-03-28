@@ -1,5 +1,14 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+	async redirects() {
+		return [
+			{
+				source: '/favicon.ico',
+				destination: '/favicon-32x32.png',
+				permanent: false,
+			},
+		]
+	},
 	webpack(config) {
 		// Grab the existing rule that handles SVG imports
 		const fileLoaderRule = config.module.rules.find(rule =>
