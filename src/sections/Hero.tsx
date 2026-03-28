@@ -28,7 +28,10 @@ export const HeroSection = () => {
           shouldSpin
           spinDuration="3s"
         >
-          <Braces className="size-8 text-emerald-300/20" />
+          <Braces
+            className="size-8 text-emerald-300 
+/20"
+          />
         </HeroOrbit>
         <HeroOrbit
           size={440}
@@ -38,10 +41,16 @@ export const HeroSection = () => {
           shouldSpin
           spinDuration="3s"
         >
-          <Braces className="size-5 text-emerald-300/20" />
+          <Braces
+            className="size-5 text-emerald-300 
+/20"
+          />
         </HeroOrbit>
         <HeroOrbit size={520} rotation={-41} shouldOrbit orbitDuration="34s">
-          <Cog className="size-3 text-emerald-300/20" />
+          <Cog
+            className="size-3 text-emerald-300 
+/20"
+          />
         </HeroOrbit>
         <HeroOrbit
           size={530}
@@ -51,7 +60,10 @@ export const HeroSection = () => {
           shouldSpin
           spinDuration="3s"
         >
-          <Braces className="size-10 text-emerald-300/20" />
+          <Braces
+            className="size-10 text-emerald-300 
+/20"
+          />
         </HeroOrbit>
         <HeroOrbit
           size={550}
@@ -61,7 +73,10 @@ export const HeroSection = () => {
           shouldSpin
           spinDuration="6s"
         >
-          <CodeXml className="size-12 text-emerald-300" />
+          <CodeXml
+            className="size-12 text-emerald-300 
+"
+          />
         </HeroOrbit>
         <HeroOrbit
           size={590}
@@ -71,10 +86,16 @@ export const HeroSection = () => {
           shouldSpin
           spinDuration="6s"
         >
-          <CodeXml className="size-8 text-emerald-300" />
+          <CodeXml
+            className="size-8 text-emerald-300 
+"
+          />
         </HeroOrbit>
         <HeroOrbit size={650} rotation={-5} shouldOrbit orbitDuration="42s">
-          <Cog className="size-3 text-emerald-300/20" />
+          <Cog
+            className="size-3 text-emerald-300 
+/20"
+          />
         </HeroOrbit>
         <HeroOrbit
           size={710}
@@ -84,10 +105,16 @@ export const HeroSection = () => {
           shouldSpin
           spinDuration="3s"
         >
-          <Braces className="size-14 text-emerald-300/20" />
+          <Braces
+            className="size-14 text-emerald-300 
+/20"
+          />
         </HeroOrbit>
         <HeroOrbit size={720} rotation={85} shouldOrbit orbitDuration="46s">
-          <Cog className="size-3 text-emerald-300/20" />
+          <Cog
+            className="size-3 text-emerald-300 
+/20"
+          />
         </HeroOrbit>
         <HeroOrbit
           size={800}
@@ -97,7 +124,10 @@ export const HeroSection = () => {
           shouldSpin
           spinDuration="6s"
         >
-          <CodeXml className="size-28 text-emerald-300" />
+          <CodeXml
+            className="size-28 text-emerald-300 
+"
+          />
         </HeroOrbit>
       </div>
 

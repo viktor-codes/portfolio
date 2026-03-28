@@ -71,7 +71,11 @@ export const ProjectsSection = () => {
             >
               <div className="lg:grid lg:grid-cols-2 lg:gap-16">
                 <div className="lg:pb-16">
-                  <div className="bg-gradient-to-r from-emerald-400 to-sky-400 font-semibold tracking-wide text-sm text-transparent bg-clip-text">
+                  <div
+                    className="bg-gradient-to-r from-emerald-400 to-sky-400
+
+ font-semibold tracking-wide text-sm text-transparent bg-clip-text"
+                  >
                     {project.eyebrow}
                   </div>
 
