@@ -12,7 +12,7 @@ import SQLAlchemyIcon from "@/assets/icons/sqlalchemy.svg";
 import TailwindCssIcon from "@/assets/icons/tailwindcss.svg";
 import TypeScriptIcon from "@/assets/icons/typescript.svg";
 import VercelIcon from "@/assets/icons/vercel.svg";
-import bookImage from "@/assets/images/book-cover.png";
+import bookImage from "@/assets/images/offer.png";
 import mapImage from "@/assets/images/map.png";
 import smileMemoji from "@/assets/images/Subject 2.png";
 import { Card } from "@/components/Card";
@@ -93,15 +93,15 @@ export const AboutSection = () => {
       <div className="container">
         <SectionHeader
           eyebrow="About Me"
-          title="A Glimpse Into My World"
-          description="Learn more about who I am, what I do and what inspires me"
+          title="How I work with clients"
+          description="From initial concept to final launch, I focus on transparent communication and building scalable solutions that drive business growth"
         />
         <div className="mt-20 flex flex-col gap-8">
           <div className="grid grid-cols-1 gap-8 md:grid-cols-5 lg:grid-cols-3">
             <Card className="h-[320px] md:col-span-2 lg:col-span-1">
               <CardHeader
-                title="My reads"
-                description="Explore the books shaping my perspectives."
+                title="Starter Offer"
+                description="A complete roadmap to transform your idea into a high-performance MVP"
               />
               <div className="w-40 mx-auto mt-2 md:mt-0">
                 <Image src={bookImage} alt="Book cover" />
@@ -110,9 +110,8 @@ export const AboutSection = () => {
             <Card className="h-[320px] md:col-span-3 lg:col-span-2">
               <CardHeader
                 className=""
-                title="My Toolbox"
-                description="Explore technologies and tools I use to craft exceptional
-								digital experiences."
+                title="Technical Stack"
+                description="My go-to technologies for building fast and accessible web applications"
               />
               <ToolboxItems
                 className=""
@@ -138,10 +137,7 @@ export const AboutSection = () => {
                 {hobbies.map((hobby) => (
                   <motion.div
                     key={hobby.title}
-                    className="inline-flex items-center gap-2 px-6 bg-gradient-to-r from-emerald-300 
- to-sky-400
-
- rounded-full py-1.5 absolute"
+                    className="inline-flex items-center gap-2 px-6 bg-gradient-to-r from-emerald-300 to-sky-400 rounded-full py-1.5 absolute"
                     style={{
                       left: hobby.left,
                       top: hobby.top,
@@ -163,20 +159,7 @@ export const AboutSection = () => {
                 alt="map"
                 className="h-full object-cover object-left-top"
               />
-              <div className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 size-20 rounded-full  after:content[""] after:inset-0 after:outline after:outline-2 after:-outline-offset-2 after:rounded-full after:outline-gray-950/30'>
-                <div
-                  className="absolute inset-0 rounded-full bg-gradient-to-r from-emerald-300 
- to-sky-400
-
- -z-20 animate-ping [animation-duration:2s]"
-                ></div>
-
-                <Image
-                  src={smileMemoji}
-                  alt="smiling memoji"
-                  className="size-15"
-                />
-              </div>
+              <div className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 size-20 rounded-full  after:content[""] after:inset-0 after:outline after:outline-2 after:-outline-offset-2 after:rounded-full after:outline-gray-950/30'></div>
             </Card>
           </div>
         </div>
