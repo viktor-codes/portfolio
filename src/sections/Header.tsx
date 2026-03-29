@@ -3,7 +3,7 @@ import Image from "next/image";
 export const Header = () => {
   return (
     <header className="fixed top-3 z-10 w-full px-4">
-      <div className="container mx-auto flex items-center justify-between gap-3 ">
+      <div className="container mx-auto flex items-center justify-between gap-3">
         <a
           href="/"
           className="flex shrink-0 items-center gap-2 transition hover:opacity-90"
@@ -13,14 +13,14 @@ export const Header = () => {
             alt="Ruramade"
             width={36}
             height={36}
-            className="size-16 object-contain"
+            className="size-16 shrink-0 object-contain"
             priority
           />
           <span className="bg-gradient-to-r from-sky-400 to-emerald-300 bg-clip-text text-sm font-semibold uppercase tracking-wide text-transparent">
             RURAMADE
           </span>
         </a>
-        <nav className="flex min-w-0 gap-1 rounded-full border border-white/15 bg-white/10 p-0.5 backdrop-blur">
+        <nav className="hidden min-w-0 gap-1 rounded-full border border-white/15 bg-white/10 p-0.5 backdrop-blur md:flex">
           <a href="#" className="nav-item">
             Home
           </a>
@@ -37,6 +37,12 @@ export const Header = () => {
             Contact
           </a>
         </nav>
+        <a
+          href="#"
+          className="shrink-0 rounded-full bg-white px-4 py-1.5 text-sm font-semibold text-gray-900 transition duration-300 hover:bg-white/70 md:hidden"
+        >
+          Contact
+        </a>
       </div>
     </header>
   );
