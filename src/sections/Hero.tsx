@@ -7,11 +7,12 @@ import Cog from "@/assets/icons/cog.svg";
 import grainImage from "@/assets/images/grain.jpg";
 
 import { HeroOrbit } from "@/components/HeroOrbit";
+import { CONTACT_TEL_HREF } from "@/lib/contact";
 
 export const HeroSection = () => {
   return (
     <div className="py-48 lg:py-60 relative z-0 overflow-x-clip">
-      <div className="absolute inset-0 [mask-image:linear-gradient(to_bottom,transparent,black_10%,black_70%,transparent)]">
+      <div className="pointer-events-none absolute inset-0 [mask-image:linear-gradient(to_bottom,transparent,black_10%,black_70%,transparent)]">
         <div
           className="absolute inset-0 -z-30 opacity-5"
           style={{ backgroundImage: `url(${grainImage.src})` }}
@@ -155,14 +156,19 @@ export const HeroSection = () => {
           </p>
         </div>
         <div className="flex flex-col md:flex-row justify-center items-center mt-8 gap-4">
-          <button className="inline-flex items-center gap-2 border border-white/15 px-6 h-12 rounded-xl">
-            <span className="font-semibold">Explore My Work</span>
-            <ArrowDown className="size-4" />
-          </button>
-          <button className="inline-flex items-center gap-2 border border-white bg-white text-gray-900 px-6 h-12 rounded-xl">
-            <span className="">🖖</span>
-            <span className="font-semibold">Let's Connect</span>
-          </button>
+          <a
+            href="#projects"
+            className="inline-flex cursor-pointer items-center gap-2 border border-white/15 px-6 h-12 rounded-xl font-semibold transition hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/40"
+          >
+            Explore My Work
+            <ArrowDown className="size-4 shrink-0" aria-hidden />
+          </a>
+          <a
+            href={CONTACT_TEL_HREF}
+            className="inline-flex cursor-pointer items-center gap-2 border border-white bg-white text-gray-900 px-6 h-12 rounded-xl font-semibold transition hover:bg-white/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+          >
+            Let's Connect
+          </a>
         </div>
       </div>
     </div>
