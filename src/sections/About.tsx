@@ -138,7 +138,7 @@ export const AboutSection = () => {
           <div className="grid grid-cols-1 gap-8 md:grid-cols-5 lg:grid-cols-3">
             <Card className="h-[320px] flex flex-col md:col-span-3 lg:col-span-2">
               <CardHeader
-                title="Life Outside Logice"
+                title="Life Outside Logic"
                 description="From the ocean waves to the kitchen..."
                 className="px-6 py-6"
               />
