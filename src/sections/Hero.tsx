@@ -138,8 +138,8 @@ export const HeroSection = () => {
             <div className="relative bg-green-500 size-2.5 rounded-full">
               <div className="absolute inset-0 animate-ping-large bg-green-500 size-2.5 rounded-full"></div>
             </div>
-            <div className="text-sm font-medium ">
-              Available for new projects
+            <div className="text-sm font-medium lowercase tracking-wide">
+              2/5 SPOTS LEFT FOR APRIL
             </div>
           </div>
         </div>
