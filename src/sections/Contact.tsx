@@ -2,6 +2,7 @@
 
 import ArrowUpRightIcon from "@/assets/icons/arrow-up-right.svg";
 import grainImage from "@/assets/images/grain.jpg";
+import { CONTACT_TEL_HREF } from "@/lib/contact";
 
 export const ContactSection = () => {
   return (
@@ -31,10 +32,13 @@ bg-gradient-to-r from-emerald-300
               </p>
             </div>
             <div className="">
-              <button className="text-white bg-gray-900 inline-flex items-center px-6 h-12 rounded-xl gap-2 w-max border border-gray-900">
-                <span className="font-semibold">Contact Me</span>
-                <ArrowUpRightIcon className="size-4" />
-              </button>
+              <a
+                href={CONTACT_TEL_HREF}
+                className="text-white bg-gray-900 inline-flex items-center px-6 h-12 rounded-xl gap-2 w-max border border-gray-900 font-semibold transition hover:bg-gray-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-900"
+              >
+                <span>Contact Me</span>
+                <ArrowUpRightIcon className="size-4" aria-hidden />
+              </a>
             </div>
           </div>
         </div>
