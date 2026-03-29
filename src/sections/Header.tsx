@@ -10,7 +10,7 @@ export const Header = () => {
           className="flex shrink-0 items-center gap-2 transition hover:opacity-90"
         >
           <Image
-            src="/ruramade-logo.svg"
+            src="/C91F3063-8608-4589-8A60-A0968F692D31.png"
             alt="Ruramade"
             width={36}
             height={36}
