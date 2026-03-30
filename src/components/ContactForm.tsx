@@ -75,9 +75,13 @@ export function ContactForm() {
       });
 
       if (!response.ok) {
+        const payload = (await response.json().catch(() => null)) as
+          | { error?: string }
+          | null;
         setSubmitState("error");
         setErrorMessage(
-          "I couldn’t send your message right now. Please try again later or reach out via phone/LinkedIn.",
+          payload?.error ??
+            "I couldn’t send your message right now. Please try again later or reach out via phone/LinkedIn.",
         );
         return;
       }
