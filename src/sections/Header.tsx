@@ -5,7 +5,7 @@ export const Header = () => {
     <header className="fixed top-3 z-10 w-full px-4">
       <div className="container mx-auto flex items-center justify-between gap-3">
         <a
-          href="#top"
+          href="/#top"
           className="flex shrink-0 items-center gap-2 transition hover:opacity-90"
         >
           <Image
@@ -21,21 +21,21 @@ export const Header = () => {
           </span>
         </a>
         <nav className="hidden min-w-0 gap-1 rounded-full border border-white/15 bg-white/10 p-0.5 backdrop-blur md:flex">
-          <a href="#projects" className="nav-item">
+          <a href="/#projects" className="nav-item">
             Projects
           </a>
-          <a href="#about" className="nav-item">
+          <a href="/#about" className="nav-item">
             About
           </a>
           <a
-            href="#contact"
+            href="/#contact"
             className="nav-item bg-white text-gray-900 hover:bg-white/70 hover:text-gray-900"
           >
             Contact
           </a>
         </nav>
         <a
-          href="#contact"
+          href="/#contact"
           className="shrink-0 rounded-full bg-white px-4 py-1.5 text-sm font-semibold text-gray-900 transition duration-300 hover:bg-white/70 md:hidden"
         >
           Contact
