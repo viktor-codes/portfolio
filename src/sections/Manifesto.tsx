@@ -106,7 +106,7 @@ export const ManifestoSection = () => {
           {manifestoIntroParagraphs.map((paragraph) => (
             <p
               key={paragraph}
-              className="text-pretty text-start text-white/70 md:text-lg lg:text-xl"
+              className="text-pretty text-center text-white/70 md:text-lg lg:text-start lg:text-xl"
             >
               {paragraph}
             </p>
