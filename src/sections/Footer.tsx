@@ -1,4 +1,5 @@
 import ArrowUpRightIcon from "@/assets/icons/arrow-up-right.svg";
+import { CookieSettingsButton } from "@/components/cookie-settings-button";
 
 const footerLinks = [
   {
@@ -22,6 +23,13 @@ export const Footer = () => {
         <div className="flex flex-col items-center gap-8 border-t border-white/15 py-6 text-sm md:flex-row md:justify-between">
           <div className="text-white/40">&copy; 2026. All rights reserved.</div>
           <nav className="flex flex-col items-center gap-8 md:flex-row">
+            <a
+              href="/privacy"
+              className="font-semibold text-white/70 transition hover:text-white"
+            >
+              Privacy
+            </a>
+            <CookieSettingsButton className="font-semibold text-white/70 transition hover:text-white" />
             {footerLinks.map((link) => (
               <a
                 href={link.href}

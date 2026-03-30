@@ -35,13 +35,11 @@ export function ContactForm() {
 
   const canSubmit = useMemo(() => {
     const hasRequired =
-      values.name.trim().length > 0 &&
-      values.email.trim().length > 0 &&
-      values.message.trim().length > 0;
+      values.email.trim().length > 0 && values.message.trim().length > 0;
     return (
       hasRequired && isEmailLike(values.email) && submitState !== "submitting"
     );
-  }, [submitState, values.email, values.message, values.name]);
+  }, [submitState, values.email, values.message]);
 
   async function onSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -70,7 +68,7 @@ export function ContactForm() {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          name: values.name.trim(),
+          name: values.name.trim() || undefined,
           email: values.email.trim(),
           phone: values.phone.trim() || undefined,
           message: values.message.trim(),
@@ -129,7 +127,7 @@ export function ContactForm() {
       <div className="grid grid-cols-1 gap-4">
         <div className="grid grid-cols-1 gap-1.5">
           <label htmlFor={nameId} className="text-sm font-semibold">
-            Name
+            Name (optional)
           </label>
           <input
             id={nameId}
@@ -139,7 +137,6 @@ export function ContactForm() {
             onChange={(e) => setValues((v) => ({ ...v, name: e.target.value }))}
             className="h-12 rounded-xl border border-gray-900/15 bg-white/70 px-4 text-gray-900 outline-none transition placeholder:text-gray-900/50 focus:bg-white focus:ring-2 focus:ring-gray-900/30"
             placeholder="Jane Doe"
-            required
           />
         </div>
 

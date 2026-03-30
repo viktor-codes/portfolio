@@ -128,13 +128,6 @@ export async function POST(request: Request) {
     return NextResponse.json({ ok: true }, { status: 200 });
   }
 
-  if (!isNonEmptyString(body.name)) {
-    return NextResponse.json(
-      { ok: false, error: "Name is required." },
-      { status: 400 },
-    );
-  }
-
   if (!isNonEmptyString(body.email) || !isEmailLike(body.email)) {
     return NextResponse.json(
       { ok: false, error: "Valid email is required." },
@@ -150,8 +143,10 @@ export async function POST(request: Request) {
   }
 
   const phone = typeof body.phone === "string" ? body.phone.trim() : "";
+  const nameTrimmed =
+    typeof body.name === "string" ? body.name.trim() : "";
 
-  const fromEmail = process.env.CONTACT_FROM_EMAIL;
+  const fromEmail = process.env.RESEND_FROM_EMAIL;
   const toEmail = process.env.CONTACT_TO_EMAIL;
   if (!fromEmail || !toEmail) {
     return NextResponse.json(
@@ -163,9 +158,11 @@ export async function POST(request: Request) {
     );
   }
 
-  const subject = `New contact: ${body.name.trim()} (${body.email.trim()})`;
+  const subject = nameTrimmed
+    ? `New contact: ${nameTrimmed} (${body.email.trim()})`
+    : `New contact: ${body.email.trim()}`;
   const text = [
-    `Name: ${body.name.trim()}`,
+    nameTrimmed ? `Name: ${nameTrimmed}` : "Name: (not provided)",
     `Email: ${body.email.trim()}`,
     phone ? `Phone: ${phone}` : "Phone: (not provided)",
     "",

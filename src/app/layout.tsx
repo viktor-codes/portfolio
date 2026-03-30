@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import { CookieConsentRoot } from "@/components/cookie-consent/cookie-consent-root";
 import { Calistoga, Inter } from "next/font/google";
 import { twMerge } from "tailwind-merge";
 import "./globals.css";
@@ -80,7 +81,7 @@ export default function RootLayout({
           "bg-gray-900 font-sans text-white antialiased",
         )}
       >
-        {children}
+        <CookieConsentRoot>{children}</CookieConsentRoot>
       </body>
     </html>
   );
