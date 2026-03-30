@@ -209,11 +209,11 @@ export const ManifestoSection = () => {
           </div>
         </div>
 
-        <div className="mx-auto mt-16 max-w-5xl md:my-32">
-          <blockquote className="xl:text-6xl text-center font-serif text-3xl font-light leading-normal text-white md:text-4xl lg:text-5xl">
+        <div className="mx-auto mt-16 max-w-5xl md:mt-32">
+          <blockquote className="xl:text-6xl text-center font-serif text-3xl leading-normal text-white md:text-4xl lg:text-5xl">
             <span className="text-emerald-300">“ </span>A bad website is worse
-            than no website.
-            <br />A great one works for you while you sleep.
+            than no website
+            <br />A great one works for you while you sleep
             <span className="text-emerald-300"> ”</span>
           </blockquote>
           <div className="mt-2 flex flex-col items-end gap-4 md:mt-4">
@@ -230,7 +230,7 @@ export const ManifestoSection = () => {
         </div>
 
         <div className="mx-auto mt-10 max-w-4xl md:mt-14">
-          <h3 className="text-center font-serif text-2xl md:text-3xl lg:text-start">
+          <h3 className="text-center font-serif text-2xl md:text-3xl">
             How Ruramade is different
           </h3>
           <Card className="mt-6 p-6 md:p-10">

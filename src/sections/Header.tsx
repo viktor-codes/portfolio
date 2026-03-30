@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export const Header = () => {
   return (
-    <header className="fixed top-0 z-10 w-full">
+    <header className="fixed top-0 z-10 w-full bg-gray-900/75 backdrop-blur-md">
       <div className="container mx-auto flex items-center justify-between gap-3">
         <a
           href="/#top"
