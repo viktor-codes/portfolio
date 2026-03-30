@@ -2,11 +2,10 @@
 
 import ArrowUpRightIcon from "@/assets/icons/arrow-up-right.svg";
 import grainImage from "@/assets/images/grain.jpg";
-import { CONTACT_TEL_HREF } from "@/lib/contact";
 
 export const ContactSection = () => {
   return (
-    <div className="py-16 pt-12 lg:py-24 lg:pt-20">
+    <div id="contact" className="py-16 pt-12 lg:py-24 lg:pt-20 scroll-mt-24">
       <div className="container">
         <div
           className="
@@ -33,7 +32,7 @@ bg-gradient-to-r from-emerald-300
             </div>
             <div className="">
               <a
-                href={CONTACT_TEL_HREF}
+                href="#contact"
                 className="text-white bg-gray-900 inline-flex items-center px-6 h-12 rounded-xl gap-2 w-max border border-gray-900 font-semibold transition hover:bg-gray-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-900"
               >
                 <span>Contact Me</span>

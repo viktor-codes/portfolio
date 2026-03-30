@@ -1,4 +1,3 @@
-import { CONTACT_TEL_HREF } from "@/lib/contact";
 import Image from "next/image";
 
 export const Header = () => {
@@ -29,14 +28,14 @@ export const Header = () => {
             About
           </a>
           <a
-            href={CONTACT_TEL_HREF}
+            href="#contact"
             className="nav-item bg-white text-gray-900 hover:bg-white/70 hover:text-gray-900"
           >
             Contact
           </a>
         </nav>
         <a
-          href={CONTACT_TEL_HREF}
+          href="#contact"
           className="shrink-0 rounded-full bg-white px-4 py-1.5 text-sm font-semibold text-gray-900 transition duration-300 hover:bg-white/70 md:hidden"
         >
           Contact

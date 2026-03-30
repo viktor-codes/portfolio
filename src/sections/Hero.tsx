@@ -7,7 +7,6 @@ import Cog from "@/assets/icons/cog.svg";
 import grainImage from "@/assets/images/grain.jpg";
 
 import { HeroOrbit } from "@/components/HeroOrbit";
-import { CONTACT_TEL_HREF } from "@/lib/contact";
 
 export const HeroSection = () => {
   return (
@@ -164,7 +163,7 @@ export const HeroSection = () => {
             <ArrowDown className="size-4 shrink-0" aria-hidden />
           </a>
           <a
-            href={CONTACT_TEL_HREF}
+            href="#contact"
             className="inline-flex cursor-pointer items-center gap-2 border border-white bg-white text-gray-900 px-6 h-12 rounded-xl font-semibold transition hover:bg-white/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
           >
             Let's Connect
