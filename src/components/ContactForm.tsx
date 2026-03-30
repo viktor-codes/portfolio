@@ -47,6 +47,10 @@ export function ContactForm() {
     event.preventDefault();
     setErrorMessage("");
 
+    if (submitState === "success") {
+      setSubmitState("idle");
+    }
+
     if (values.companyWebsite.trim().length > 0) {
       // honeypot hit — pretend success to avoid giving feedback to bots
       setSubmitState("success");
@@ -79,10 +83,28 @@ export function ContactForm() {
           | { error?: string }
           | null;
         setSubmitState("error");
-        setErrorMessage(
-          payload?.error ??
-            "I couldn’t send your message right now. Please try again later or reach out via phone/LinkedIn.",
-        );
+        if (response.status === 429) {
+          const retryAfterHeader = response.headers.get("retry-after");
+          const retryAfterSeconds = retryAfterHeader
+            ? Number(retryAfterHeader)
+            : NaN;
+          setErrorMessage(
+            Number.isFinite(retryAfterSeconds) && retryAfterSeconds > 0
+              ? `Too many attempts. Please try again in ${Math.ceil(retryAfterSeconds)}s.`
+              : payload?.error ?? "Too many attempts. Please try again shortly.",
+          );
+          return;
+        }
+
+        if (response.status >= 500) {
+          setErrorMessage(
+            payload?.error ??
+              "Something went wrong on my side. Please try again later or reach out via LinkedIn.",
+          );
+          return;
+        }
+
+        setErrorMessage(payload?.error ?? "Please check your details and try again.");
         return;
       }
 
@@ -97,7 +119,7 @@ export function ContactForm() {
     } catch {
       setSubmitState("error");
       setErrorMessage(
-        "I couldn’t send your message right now. Please try again later or reach out via phone/LinkedIn.",
+        "Network error. Please try again, or reach out via LinkedIn.",
       );
     }
   }

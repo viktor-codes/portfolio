@@ -44,6 +44,15 @@ function isRateLimited(ip: string, nowMs: number): boolean {
   return entry.count >= RATE_LIMIT_MAX;
 }
 
+function getRateLimitRetryAfterSeconds(ip: string, nowMs: number): number | null {
+  const entry = rateLimitStore.get(ip);
+  if (!entry) return null;
+  if (nowMs >= entry.resetAtMs) return null;
+  if (entry.count < RATE_LIMIT_MAX) return null;
+  const seconds = Math.ceil((entry.resetAtMs - nowMs) / 1000);
+  return Number.isFinite(seconds) && seconds > 0 ? seconds : 1;
+}
+
 function incrementRateLimit(ip: string, nowMs: number): void {
   const entry = rateLimitStore.get(ip);
   if (!entry || nowMs >= entry.resetAtMs) {
@@ -90,9 +99,16 @@ export async function POST(request: Request) {
   const ip = getClientIp(request);
 
   if (isRateLimited(ip, nowMs)) {
+    const retryAfterSeconds = getRateLimitRetryAfterSeconds(ip, nowMs) ?? 60;
     return NextResponse.json(
-      { ok: false, error: "Too many requests. Please try again shortly." },
-      { status: 429 },
+      {
+        ok: false,
+        error: `Too many requests. Please try again in ${retryAfterSeconds}s.`,
+      },
+      {
+        status: 429,
+        headers: { "Retry-After": String(retryAfterSeconds) },
+      },
     );
   }
 
@@ -139,7 +155,10 @@ export async function POST(request: Request) {
   const toEmail = process.env.CONTACT_TO_EMAIL;
   if (!fromEmail || !toEmail) {
     return NextResponse.json(
-      { ok: false, error: "Server is not configured for contact emails." },
+      {
+        ok: false,
+        error: "Contact form is not configured. Please try again later.",
+      },
       { status: 500 },
     );
   }
@@ -168,7 +187,11 @@ export async function POST(request: Request) {
     });
   } catch {
     return NextResponse.json(
-      { ok: false, error: "Failed to send message." },
+      {
+        ok: false,
+        error:
+          "I couldn’t send your message right now. Please try again later or reach out via LinkedIn.",
+      },
       { status: 502 },
     );
   }
