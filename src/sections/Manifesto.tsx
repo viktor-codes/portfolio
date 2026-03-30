@@ -1,5 +1,9 @@
+"use client";
+
 import { Card } from "@/components/Card";
 import { SectionHeader } from "@/components/SectionHeader";
+import CheckIcon from "@/assets/icons/check-circle.svg";
+import { useMemo, useState } from "react";
 
 interface StatItem {
   value: string;
@@ -22,7 +26,7 @@ const stats: StatItem[] = [
   },
   {
     value: "88%",
-    text: "won\u2019t return after a bad mobile experience.",
+    text: "88% of online consumers are less likely to return to a site after a bad experience",
     sourceHref:
       "https://montereypremier.com/wp-content/uploads/2019/10/201110_why_web_performance_matters.pdf",
     sourceLabel: "Why Web Performance Matters (PDF)",
@@ -73,30 +77,37 @@ const differentiators = [
 ] as const;
 
 export const ManifestoSection = () => {
+  const [openMyth, setOpenMyth] = useState<string | null>(null);
+  const accordionId = useMemo(() => "manifesto-myths", []);
+
   return (
     <section id="manifesto" className="scroll-mt-24 py-16 lg:py-24">
       <div className="container">
         <SectionHeader
-          eyebrow="The Ruramade Manifesto"
+          eyebrow="Manifesto"
           title="Your business exists. Does the internet know that?"
-          description="A website isn't a luxury. It's the first conversation you have with someone who's already looking for you."
+          description=""
         />
 
         <div className="mx-auto mt-10 max-w-3xl md:mt-16">
           <p className="text-white/70 md:text-lg lg:text-xl">
             Every day, potential customers search for what you offer. They find
             your competitor — not because they\u2019re better, but because they
-            showed up.
+            showed up. A website isn\u2019t a luxury. It\u2019s the first conversation you
+            have with someone who\u2019s already looking for you.
           </p>
         </div>
 
         <div className="mx-auto mt-10 grid max-w-4xl grid-cols-1 gap-6 md:mt-14 md:grid-cols-3">
           {stats.map((item) => (
-            <Card key={item.value} className="p-6 md:p-8">
+            <Card
+              key={item.value}
+              className="flex flex-col justify-between p-6 md:p-8"
+            >
               <div className="font-serif text-4xl text-white md:text-5xl">
                 {item.value}
               </div>
-              <p className="mt-3 text-sm text-white/60 md:text-base">
+              <p className="mt-3 text-pretty text-sm text-white/60 md:text-base">
                 {item.text}
               </p>
               <div className="mt-4">
@@ -105,8 +116,9 @@ export const ManifestoSection = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-sm font-semibold text-emerald-300 underline underline-offset-4"
+                  aria-label={`Source: ${item.sourceLabel}`}
                 >
-                  Source: {item.sourceLabel}
+                  Source
                 </a>
               </div>
             </Card>
@@ -114,44 +126,69 @@ export const ManifestoSection = () => {
         </div>
 
         <div className="mx-auto mt-10 max-w-4xl md:mt-14">
-          <h3 className="text-center font-serif text-2xl md:text-3xl">
-            Myths vs Truth
+          <h3 className="text-start font-serif text-2xl md:text-3xl">
+            Things we hear.
+            <br />
+            <span className="text-emerald-600">Things we need to address.</span>
           </h3>
           <div className="mt-6 flex flex-col gap-4">
-            {myths.map((item) => (
-              <Card key={item.myth} className="p-0">
-                <details className="group">
-                  <summary className="cursor-pointer list-none px-6 py-5 md:px-8">
+            {myths.map((item, index) => {
+              const isOpen = openMyth === item.myth;
+              return (
+                <div key={item.myth} className="p-0">
+                  <button
+                    type="button"
+                    className="w-full cursor-pointer py-5 text-left focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/40"
+                    aria-expanded={isOpen}
+                    aria-controls={`${accordionId}-panel-${index}`}
+                    id={`${accordionId}-trigger-${index}`}
+                    onClick={() =>
+                      setOpenMyth((v) => (v === item.myth ? null : item.myth))
+                    }
+                  >
                     <div className="flex items-start justify-between gap-6">
                       <div>
-                        <div className="text-xs font-semibold uppercase tracking-widest text-white/40">
-                          Myth
-                        </div>
                         <div className="mt-1 font-serif text-lg md:text-xl">
                           “{item.myth}”
                         </div>
                       </div>
                       <div
-                        className="mt-1 inline-flex size-8 flex-shrink-0 items-center justify-center rounded-full border border-white/15 text-white/70"
+                        className="mt-1 inline-flex size-8 flex-shrink-0 items-center justify-center text-white/70"
                         aria-hidden
                       >
-                        +
+                        <span
+                          className={`inline-flex size-8 select-none items-center justify-center text-2xl font-light leading-none transition-transform duration-200 ${
+                            isOpen ? "rotate-45" : "rotate-0"
+                          }`}
+                        >
+                          +
+                        </span>
                       </div>
                     </div>
-                  </summary>
-                  <div className="px-6 pb-6 md:px-8">
-                    <div className="border-t border-white/10 pt-5">
-                      <div className="text-xs font-semibold uppercase tracking-widest text-white/40">
-                        Truth
+                  </button>
+                  <hr className="border-white/10" />
+
+                  {isOpen ? (
+                    <div
+                      id={`${accordionId}-panel-${index}`}
+                      role="region"
+                      aria-labelledby={`${accordionId}-trigger-${index}`}
+                      className="pb-6"
+                    >
+                      <div className="flex gap-4 pt-5">
+                        <div
+                          className="w-1 shrink-0 self-stretch rounded-full bg-emerald-600"
+                          aria-hidden
+                        />
+                        <p className="text-sm text-white/70 md:text-base">
+                          {item.truth}
+                        </p>
                       </div>
-                      <p className="mt-2 text-sm text-white/70 md:text-base">
-                        {item.truth}
-                      </p>
                     </div>
-                  </div>
-                </details>
-              </Card>
-            ))}
+                  ) : null}
+                </div>
+              );
+            })}
           </div>
         </div>
 
@@ -171,18 +208,23 @@ export const ManifestoSection = () => {
           <h3 className="text-center font-serif text-2xl md:text-3xl">
             How Ruramade is different
           </h3>
-          <div className="mt-6 grid grid-cols-1 gap-6 md:grid-cols-2">
-            {differentiators.map((item) => (
-              <Card key={item.title} className="p-6 md:p-8">
-                <div className="font-serif text-xl md:text-2xl">
-                  {item.title}
-                </div>
-                <p className="mt-2 text-sm text-white/60 md:text-base">
-                  {item.text}
-                </p>
-              </Card>
-            ))}
-          </div>
+          <Card className="mt-6 p-6 md:p-10">
+            <ul className="flex flex-col gap-4">
+              {differentiators.map((item) => (
+                <li key={item.title} className="flex gap-3">
+                  <CheckIcon className="mt-0.5 size-5 flex-shrink-0 text-emerald-300 md:size-6" />
+                  <div>
+                    <div className="font-serif text-lg md:text-xl">
+                      {item.title}
+                    </div>
+                    <p className="mt-1 text-sm text-white/60 md:text-base">
+                      {item.text}
+                    </p>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </Card>
         </div>
 
         <div className="mt-10 flex justify-center md:mt-14">
@@ -197,4 +239,3 @@ export const ManifestoSection = () => {
     </section>
   );
 };
-
