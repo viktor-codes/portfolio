@@ -6,6 +6,7 @@ import StarIcon from "@/assets/icons/star.svg";
 import { Card } from "@/components/Card";
 import { SectionHeader } from "@/components/SectionHeader";
 import CheckIcon from "@/assets/icons/check-circle.svg";
+import Image from "next/image";
 import { useMemo, useState } from "react";
 
 interface StatItem {
@@ -208,20 +209,28 @@ export const ManifestoSection = () => {
           </div>
         </div>
 
-        <div className="mx-auto mt-10 max-w-4xl md:mt-14">
-          <Card className="p-6 md:p-10">
-            <blockquote className="text-balance text-center font-serif text-2xl md:text-3xl">
-              “A bad website is worse than no website. A great one works for you
-              while you sleep.”
-            </blockquote>
-            <div className="mt-4 text-center text-sm font-semibold text-white/60 md:text-base">
-              — Viktor Rura, Founder of Ruramade
-            </div>
-          </Card>
+        <div className="mx-auto mt-16 max-w-5xl md:my-32">
+          <blockquote className="xl:text-6xl text-center font-serif text-3xl font-light leading-normal text-white md:text-4xl lg:text-5xl">
+            <span className="text-emerald-300">“ </span>A bad website is worse
+            than no website.
+            <br />A great one works for you while you sleep.
+            <span className="text-emerald-300"> ”</span>
+          </blockquote>
+          <div className="mt-2 flex flex-col items-end gap-4 md:mt-4">
+            <Image
+              src="/signature.svg"
+              alt=""
+              width={300}
+              height={150}
+              unoptimized
+              className="h-auto w-[min(100%,160px)] brightness-0 invert md:w-[220px]"
+            />
+            <p className="sr-only">Viktor Rura, Founder of Ruramade</p>
+          </div>
         </div>
 
         <div className="mx-auto mt-10 max-w-4xl md:mt-14">
-          <h3 className="text-center font-serif text-2xl md:text-3xl">
+          <h3 className="text-center font-serif text-2xl md:text-3xl lg:text-start">
             How Ruramade is different
           </h3>
           <Card className="mt-6 p-6 md:p-10">
@@ -241,15 +250,6 @@ export const ManifestoSection = () => {
               ))}
             </ul>
           </Card>
-        </div>
-
-        <div className="mt-10 flex justify-center md:mt-14">
-          <a
-            href="#contact"
-            className="inline-flex h-12 cursor-pointer items-center gap-2 rounded-xl border border-white bg-white px-6 font-semibold text-gray-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
-          >
-            Start your project →
-          </a>
         </div>
       </div>
     </section>
