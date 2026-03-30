@@ -5,7 +5,6 @@ import CogIcon from "@/assets/icons/cog.svg";
 import StarIcon from "@/assets/icons/star.svg";
 import { Card } from "@/components/Card";
 import { SectionHeader } from "@/components/SectionHeader";
-import { TechIcon } from "@/components/TechIcon";
 import CheckIcon from "@/assets/icons/check-circle.svg";
 import { useMemo, useState } from "react";
 
@@ -25,14 +24,14 @@ interface MythItem {
 const stats: StatItem[] = [
   {
     value: "75%",
-    text: "of users judge a business\u2019 credibility based on its website.",
+    text: "of users judge a business's credibility based on its website.",
     sourceHref: "https://credibility.stanford.edu/guidelines/index.html",
     sourceLabel: "Stanford Web Credibility Project",
     iconType: StarIcon,
   },
   {
     value: "88%",
-    text: "88% of online consumers are less likely to return to a site after a bad experience",
+    text: "of online consumers are less likely to return to a site after a bad experience",
     sourceHref:
       "https://montereypremier.com/wp-content/uploads/2019/10/201110_why_web_performance_matters.pdf",
     sourceLabel: "Why Web Performance Matters (PDF)",
@@ -84,6 +83,11 @@ const differentiators = [
   },
 ] as const;
 
+const manifestoIntroParagraphs = [
+  "Every day, potential customers search for what you offer. They find your competitor — not because they're better, but because they showed up.",
+  "A website isn't a luxury. It's the first conversation you have with someone who's already looking for you.",
+] as const;
+
 export const ManifestoSection = () => {
   const [openMyth, setOpenMyth] = useState<string | null>(null);
   const accordionId = useMemo(() => "manifesto-myths", []);
@@ -91,19 +95,22 @@ export const ManifestoSection = () => {
   return (
     <section id="manifesto" className="scroll-mt-24 py-16 lg:py-24">
       <div className="container">
-        <SectionHeader
-          eyebrow="Manifesto"
-          title="Your business exists. Does the internet know that?"
-          description=""
-        />
+        <SectionHeader eyebrow="Manifesto" title="" description="" />
+        <h2 className="mt-6 text-balance text-center font-serif text-3xl md:text-5xl">
+          Your business exists.
+          <br />
+          Does the internet know that?
+        </h2>
 
-        <div className="mx-auto mt-10 max-w-3xl md:mt-16">
-          <p className="text-white/70 md:text-lg lg:text-xl">
-            Every day, potential customers search for what you offer. They find
-            your competitor — not because they\u2019re better, but because they
-            showed up. A website isn\u2019t a luxury. It\u2019s the first conversation you
-            have with someone who\u2019s already looking for you.
-          </p>
+        <div className="mx-auto mt-10 flex max-w-4xl flex-col gap-6 md:mt-16">
+          {manifestoIntroParagraphs.map((paragraph) => (
+            <p
+              key={paragraph}
+              className="text-pretty text-start text-white/70 md:text-lg lg:text-xl"
+            >
+              {paragraph}
+            </p>
+          ))}
         </div>
 
         <div className="mx-auto mt-10 grid max-w-4xl grid-cols-1 gap-6 md:mt-14 md:grid-cols-3">
@@ -112,9 +119,6 @@ export const ManifestoSection = () => {
               key={item.value}
               className="flex flex-col justify-between p-6 md:p-8"
             >
-              <div className="inline-flex items-center gap-4 self-start rounded-lg px-3 py-2 outline outline-2 outline-white/10">
-                <TechIcon component={item.iconType} />
-              </div>
               <div className="mt-4 font-serif text-4xl text-white md:text-5xl">
                 {item.value}
               </div>

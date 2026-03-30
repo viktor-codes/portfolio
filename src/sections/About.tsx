@@ -109,7 +109,7 @@ export const AboutSection = () => {
             >
               <Card className="h-[320px] cursor-pointer transition-[background-color,box-shadow] group-hover:bg-gray-800/80 group-hover:ring-1 group-hover:ring-white/10">
                 <CardHeader
-                  title="Starter Offer"
+                  title="My Offer"
                   description="Get your website live in 10 days for a fixed fee. Click to download the full process"
                 />
                 <div className="pointer-events-none mx-auto mt-2 w-40 md:mt-0">
