@@ -2,14 +2,14 @@ import Image from "next/image";
 
 export const Header = () => {
   return (
-    <header className="fixed top-3 z-10 w-full px-4">
+    <header className="fixed top-0 z-10 w-full">
       <div className="container mx-auto flex items-center justify-between gap-3">
         <a
           href="/#top"
           className="flex shrink-0 items-center gap-2 transition hover:opacity-90"
         >
           <Image
-            src="/C91F3063-8608-4589-8A60-A0968F692D31.png"
+            src="/ruramade-logo.svg"
             alt="Ruramade"
             width={36}
             height={36}
