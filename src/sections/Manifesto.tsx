@@ -1,7 +1,11 @@
 "use client";
 
+import ArrowUpRightIcon from "@/assets/icons/arrow-up-right.svg";
+import CogIcon from "@/assets/icons/cog.svg";
+import StarIcon from "@/assets/icons/star.svg";
 import { Card } from "@/components/Card";
 import { SectionHeader } from "@/components/SectionHeader";
+import { TechIcon } from "@/components/TechIcon";
 import CheckIcon from "@/assets/icons/check-circle.svg";
 import { useMemo, useState } from "react";
 
@@ -10,6 +14,7 @@ interface StatItem {
   text: string;
   sourceHref: string;
   sourceLabel: string;
+  iconType: React.ElementType;
 }
 
 interface MythItem {
@@ -23,6 +28,7 @@ const stats: StatItem[] = [
     text: "of users judge a business\u2019 credibility based on its website.",
     sourceHref: "https://credibility.stanford.edu/guidelines/index.html",
     sourceLabel: "Stanford Web Credibility Project",
+    iconType: StarIcon,
   },
   {
     value: "88%",
@@ -30,12 +36,14 @@ const stats: StatItem[] = [
     sourceHref:
       "https://montereypremier.com/wp-content/uploads/2019/10/201110_why_web_performance_matters.pdf",
     sourceLabel: "Why Web Performance Matters (PDF)",
+    iconType: CogIcon,
   },
   {
     value: "10%",
     text: "of leads come from social media — your website does the rest.",
     sourceHref: "https://www.hubspot.com/marketing-statistics",
     sourceLabel: "HubSpot marketing statistics",
+    iconType: ArrowUpRightIcon,
   },
 ];
 
@@ -104,7 +112,10 @@ export const ManifestoSection = () => {
               key={item.value}
               className="flex flex-col justify-between p-6 md:p-8"
             >
-              <div className="font-serif text-4xl text-white md:text-5xl">
+              <div className="inline-flex items-center gap-4 self-start rounded-lg px-3 py-2 outline outline-2 outline-white/10">
+                <TechIcon component={item.iconType} />
+              </div>
+              <div className="mt-4 font-serif text-4xl text-white md:text-5xl">
                 {item.value}
               </div>
               <p className="mt-3 text-pretty text-sm text-white/60 md:text-base">
@@ -166,7 +177,6 @@ export const ManifestoSection = () => {
                       </div>
                     </div>
                   </button>
-                  <hr className="border-white/10" />
 
                   {isOpen ? (
                     <div
@@ -175,7 +185,7 @@ export const ManifestoSection = () => {
                       aria-labelledby={`${accordionId}-trigger-${index}`}
                       className="pb-6"
                     >
-                      <div className="flex gap-4 pt-5">
+                      <div className="flex gap-4 pt-2">
                         <div
                           className="w-1 shrink-0 self-stretch rounded-full bg-emerald-600"
                           aria-hidden
@@ -186,6 +196,8 @@ export const ManifestoSection = () => {
                       </div>
                     </div>
                   ) : null}
+
+                  <hr className="border-white/10" />
                 </div>
               );
             })}
