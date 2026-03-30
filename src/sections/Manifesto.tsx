@@ -231,9 +231,13 @@ export const ManifestoSection = () => {
 
         <div className="mx-auto mt-10 max-w-4xl md:mt-14">
           <h3 className="text-center font-serif text-2xl md:text-3xl">
-            How Ruramade is different
+            How{" "}
+            <span className="bg-gradient-to-r from-sky-400 to-emerald-300 bg-clip-text text-transparent">
+              RURAMADE
+            </span>{" "}
+            is different
           </h3>
-          <Card className="mt-6 p-6 md:p-10">
+          <Card className="mt-6 p-6 opacity-70 md:p-10">
             <ul className="flex flex-col gap-4">
               {differentiators.map((item) => (
                 <li key={item.title} className="flex gap-3">
