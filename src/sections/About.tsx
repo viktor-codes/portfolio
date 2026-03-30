@@ -105,14 +105,14 @@ export const AboutSection = () => {
             <a
               href={STARTER_OFFER_PDF_HREF}
               download={STARTER_OFFER_PDF_FILENAME}
-              className="group block md:col-span-2 lg:col-span-1 rounded-3xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-400"
+              className="group block rounded-3xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-400 md:col-span-2 lg:col-span-1"
             >
               <Card className="h-[320px] cursor-pointer transition-[background-color,box-shadow] group-hover:bg-gray-800/80 group-hover:ring-1 group-hover:ring-white/10">
                 <CardHeader
                   title="Starter Offer"
                   description="Get your website live in 10 days for a fixed fee. Click to download the full process"
                 />
-                <div className="w-40 mx-auto mt-2 md:mt-0 pointer-events-none">
+                <div className="pointer-events-none mx-auto mt-2 w-40 md:mt-0">
                   <Image src={bookImage} alt="Starter offer PDF preview" />
                 </div>
               </Card>
@@ -136,7 +136,7 @@ export const AboutSection = () => {
             </Card>
           </div>
           <div className="grid grid-cols-1 gap-8 md:grid-cols-5 lg:grid-cols-3">
-            <Card className="h-[320px] flex flex-col md:col-span-3 lg:col-span-2">
+            <Card className="flex h-[320px] flex-col md:col-span-3 lg:col-span-2">
               <CardHeader
                 title="Life Outside Logic"
                 description="From the ocean waves to the kitchen..."
@@ -147,7 +147,7 @@ export const AboutSection = () => {
                 {hobbies.map((hobby) => (
                   <motion.div
                     key={hobby.title}
-                    className="inline-flex items-center gap-2 px-6 bg-gradient-to-r from-emerald-300 to-sky-400 rounded-full py-1.5 absolute"
+                    className="absolute inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-emerald-300 to-sky-400 px-6 py-1.5"
                     style={{
                       left: hobby.left,
                       top: hobby.top,
@@ -163,14 +163,14 @@ export const AboutSection = () => {
                 ))}
               </div>
             </Card>
-            <Card className="h-[320px] p-0 relative md:col-span-2 lg:col-span-1">
+            <Card className="relative h-[320px] p-0 md:col-span-2 lg:col-span-1">
               <Image
                 src={mapImage}
                 alt="Map — based in the Irish Midlands, Ireland"
                 className="h-full object-cover object-left-top"
               />
               <div
-                className="absolute top-1/3 left-1/2 -translate-x-1/5 -translate-y-1/2"
+                className="-translate-x-1/5 absolute left-1/2 top-1/3 -translate-y-1/2"
                 aria-hidden
               >
                 <MapPinIcon className="size-16 text-gray-800" />

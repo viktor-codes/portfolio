@@ -1,44 +1,31 @@
 /* eslint-disable react/no-unescaped-entities */
 
-import ArrowUpRightIcon from "@/assets/icons/arrow-up-right.svg";
 import grainImage from "@/assets/images/grain.jpg";
+import { ContactForm } from "@/components/ContactForm";
 
 export const ContactSection = () => {
   return (
-    <div id="contact" className="py-16 pt-12 lg:py-24 lg:pt-20 scroll-mt-24">
+    <div id="contact" className="scroll-mt-24 py-16 pt-12 lg:py-24 lg:pt-20">
       <div className="container">
-        <div
-          className="
-bg-gradient-to-r from-emerald-300 
- to-sky-400
-
-  text-gray-900 py-8 px-10 rounded-3xl text-center md:text-left relative overflow-hidden z-0"
-        >
+        <div className="relative z-0 overflow-hidden rounded-3xl bg-gradient-to-r from-emerald-300 to-sky-400 px-10 py-8 text-center text-gray-900 md:text-left">
           <div
-            className="absolute inset-0 opacity-5 -z-10"
+            className="absolute inset-0 -z-10 opacity-5"
             style={{
               backgroundImage: `url(${grainImage.src})`,
             }}
           ></div>
-          <div className="flex flex-col gap-8 items-center md:flex-row md:gap-16">
-            <div className="">
+          <div className="flex flex-col gap-10 md:flex-row md:items-start md:gap-16">
+            <div className="md:max-w-sm">
               <h2 className="font-serif text-2xl md:text-3xl">
-                Let's create something amazing together
+                Tell me what you’re building
               </h2>
-              <p className="text-sm md:text-base mt-2">
-                Ready to bring your next project to life? Let's connect and
-                discuss how I can help you achieve your goals.
+              <p className="mt-2 text-sm md:text-base">
+                I reply within 24 hours. Share the goal, timeline, and any links
+                — I’ll suggest the fastest path to launch.
               </p>
             </div>
-            <div className="">
-              <a
-                href="#contact"
-                className="text-white bg-gray-900 inline-flex items-center px-6 h-12 rounded-xl gap-2 w-max border border-gray-900 font-semibold transition hover:bg-gray-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-900"
-              >
-                <span>Contact Me</span>
-                <ArrowUpRightIcon className="size-4" aria-hidden />
-              </a>
-            </div>
+
+            <ContactForm />
           </div>
         </div>
       </div>

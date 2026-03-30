@@ -52,7 +52,7 @@ const portfolioProjects = [
 
 export const ProjectsSection = () => {
   return (
-    <section id="projects" className="pb-16 lg:py-24 ">
+    <section id="projects" className="pb-16 lg:py-24">
       <div className="container">
         <SectionHeader
           eyebrow="Real-world Results"
@@ -60,33 +60,29 @@ export const ProjectsSection = () => {
           description="A selection of digital products built to solve complex problems through clean architecture and intuitive design."
         />
 
-        <div className="flex flex-col mt-10 gap-20 md:mt-20 ">
+        <div className="mt-10 flex flex-col gap-20 md:mt-20">
           {portfolioProjects.map((project, projectIndex) => (
             <Card
               key={project.title}
-              className="px-8 pt-8 md:pt-12 pb-0 md:px-10 lg:pt-16 lg:px-20 sticky"
+              className="sticky px-8 pb-0 pt-8 md:px-10 md:pt-12 lg:px-20 lg:pt-16"
               style={{
                 top: `calc(64px + ${projectIndex * 40}px)`,
               }}
             >
               <div className="lg:grid lg:grid-cols-2 lg:gap-16">
                 <div className="lg:pb-16">
-                  <div
-                    className="bg-gradient-to-r from-emerald-400 to-sky-400
-
- font-semibold tracking-wide text-sm text-transparent bg-clip-text"
-                  >
+                  <div className="bg-gradient-to-r from-emerald-400 to-sky-400 bg-clip-text text-sm font-semibold tracking-wide text-transparent">
                     {project.eyebrow}
                   </div>
 
-                  <h3 className="font-serif text-2xl md:text-4xl md:mt-5 mt-2">
+                  <h3 className="mt-2 font-serif text-2xl md:mt-5 md:text-4xl">
                     {project.title}
                   </h3>
-                  <hr className="border-t-2 border-white/5 mt-4 md:mt-5" />
-                  <ul className="flex flex-col gap-4 mt-4 md:mt-5">
+                  <hr className="mt-4 border-t-2 border-white/5 md:mt-5" />
+                  <ul className="mt-4 flex flex-col gap-4 md:mt-5">
                     {project.results.map((result) => (
                       <li
-                        className="flex gap-2 text-sm md:text-base text-white/50"
+                        className="flex gap-2 text-sm text-white/50 md:text-base"
                         key={result.title}
                       >
                         <CheckIcon className="size-5 md:size-6" />
@@ -99,7 +95,7 @@ export const ProjectsSection = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <button className="bg-white text-gray-950 h-12 w-full md:w-auto px-6 rounded-xl font-semibold inline-flex items-center justify-center gap-2 mt-8">
+                    <button className="mt-8 inline-flex h-12 w-full items-center justify-center gap-2 rounded-xl bg-white px-6 font-semibold text-gray-950 md:w-auto">
                       <span>Visit Live Site</span>
                       <ArrowUpIcon className="size-4" />
                     </button>
@@ -109,7 +105,7 @@ export const ProjectsSection = () => {
                   <Image
                     src={project.image}
                     alt={project.title}
-                    className="mt-8 -mb-4 md:-mb-0 lg:mt-0 lg:absolute lg:h-full lg:w-auto lg:max-w-none"
+                    className="-mb-4 mt-8 md:-mb-0 lg:absolute lg:mt-0 lg:h-full lg:w-auto lg:max-w-none"
                   />
                 </div>
               </div>
