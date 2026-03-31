@@ -237,7 +237,7 @@ export const ManifestoSection = () => {
             </span>{" "}
             is different
           </h3>
-          <Card className="mt-6 p-6 opacity-70 md:p-10">
+          <Card className="mt-6 p-6 opacity-85 md:p-10">
             <ul className="flex flex-col gap-4">
               {differentiators.map((item) => (
                 <li key={item.title} className="flex gap-3">

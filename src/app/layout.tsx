@@ -29,19 +29,45 @@ function getMetadataBase(): URL {
 
 export const metadata: Metadata = {
   metadataBase: getMetadataBase(),
-  title: "Viktor Rura Portfolio",
-  description: "Viktor Rura Portfolio Website",
-  applicationName: "Viktor Rura Portfolio",
+  title: "RuraMade | High-Performance Websites & Integrations",
+  description:
+    "Bespoke websites for small businesses built to ship in 10 days. High-speed, SEO-optimized, and built with Next.js. Based in Irish Midlands.",
+  applicationName: "RuraMade Portfolio",
   manifest: "/site.webmanifest",
+  openGraph: {
+    type: "website",
+    title: "RuraMade | Websites & Integrations built to ship",
+    description:
+      "I build websites for small businesses that need to look professional and start getting enquiries — fast.",
+    siteName: "RuraMade",
+    images: [
+      {
+        url: "/og.jpg",
+        width: 1200,
+        height: 630,
+        alt: "RuraMade - Professional Web Development",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "RuraMade | High-Performance Websites",
+    description: "Websites for small businesses built to ship in 10 days.",
+    images: ["/og.jpg"],
+  },
   appleWebApp: {
     capable: true,
     statusBarStyle: "black-translucent",
-    title: "Viktor Rura",
+    title: "RuraMade",
   },
   formatDetection: {
     email: false,
     address: false,
     telephone: false,
+  },
+  icons: {
+    icon: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
   },
 };
 
