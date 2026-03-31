@@ -135,7 +135,7 @@ export function ContactForm() {
             autoComplete="name"
             value={values.name}
             onChange={(e) => setValues((v) => ({ ...v, name: e.target.value }))}
-            className="h-12 rounded-xl border border-gray-900/15 bg-white/70 px-4 text-gray-900 outline-none transition placeholder:text-gray-900/50 focus:bg-white focus:ring-2 focus:ring-gray-900/30"
+            className="h-12 rounded-xl border border-gray-900/15 bg-white px-4 text-gray-900 outline-none transition placeholder:text-gray-900/50 focus:ring-2 focus:ring-gray-900/30"
             placeholder="Jane Doe"
           />
         </div>
@@ -155,7 +155,7 @@ export function ContactForm() {
               onChange={(e) =>
                 setValues((v) => ({ ...v, email: e.target.value }))
               }
-              className="h-12 rounded-xl border border-gray-900/15 bg-white/70 px-4 text-gray-900 outline-none transition placeholder:text-gray-900/50 focus:bg-white focus:ring-2 focus:ring-gray-900/30"
+              className="h-12 rounded-xl border border-gray-900/15 bg-white px-4 text-gray-900 outline-none transition placeholder:text-gray-900/50 focus:ring-2 focus:ring-gray-900/30"
               placeholder="jane@company.com"
               required
             />
@@ -175,7 +175,7 @@ export function ContactForm() {
               onChange={(e) =>
                 setValues((v) => ({ ...v, phone: e.target.value }))
               }
-              className="h-12 rounded-xl border border-gray-900/15 bg-white/70 px-4 text-gray-900 outline-none transition placeholder:text-gray-900/50 focus:bg-white focus:ring-2 focus:ring-gray-900/30"
+              className="h-12 rounded-xl border border-gray-900/15 bg-white px-4 text-gray-900 outline-none transition placeholder:text-gray-900/50 focus:ring-2 focus:ring-gray-900/30"
               placeholder="+353 87 123 4567"
             />
           </div>
@@ -192,7 +192,7 @@ export function ContactForm() {
             onChange={(e) =>
               setValues((v) => ({ ...v, message: e.target.value }))
             }
-            className="min-h-32 resize-y rounded-xl border border-gray-900/15 bg-white/70 px-4 py-3 text-gray-900 outline-none transition placeholder:text-gray-900/50 focus:bg-white focus:ring-2 focus:ring-gray-900/30"
+            className="min-h-32 resize-y rounded-xl border border-gray-900/15 bg-white px-4 py-3 text-gray-900 outline-none transition placeholder:text-gray-900/50 focus:ring-2 focus:ring-gray-900/30"
             placeholder="Tell me what you’re building and what ‘done’ looks like."
             required
           />
