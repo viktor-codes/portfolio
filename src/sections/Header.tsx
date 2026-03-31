@@ -9,14 +9,14 @@ export const Header = () => {
           className="flex shrink-0 items-center gap-2 transition hover:opacity-90"
         >
           <Image
-            src="/newlogo1.svg"
+            src="/logogo3.svg"
             alt="Ruramade"
             width={36}
             height={36}
-            className="size-12 shrink-0 object-contain"
+            className="size-16 shrink-0 object-contain"
             priority
           />
-          <span className="bg-gradient-to-r from-emerald-300 to-sky-400 bg-clip-text font-serif text-lg uppercase tracking-wide text-transparent">
+          <span className="bg-gradient-to-r from-sky-400 to-emerald-300 bg-clip-text font-serif text-lg uppercase tracking-wide text-transparent">
             RURAMADE
           </span>
         </a>
