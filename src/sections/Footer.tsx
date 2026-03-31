@@ -1,5 +1,6 @@
 import ArrowUpRightIcon from "@/assets/icons/arrow-up-right.svg";
 import { CookieSettingsButton } from "@/components/cookie-settings-button";
+import { CONTACT_TEL_HREF } from "@/lib/contact";
 
 const footerLinks = [
   {
@@ -28,6 +29,18 @@ export const Footer = () => {
               className="font-semibold text-white/70 transition hover:text-white"
             >
               Privacy
+            </a>
+            <a
+              href="/terms"
+              className="font-semibold text-white/70 transition hover:text-white"
+            >
+              Terms
+            </a>
+            <a
+              href={CONTACT_TEL_HREF}
+              className="font-semibold text-white/70 transition hover:text-white"
+            >
+              Call
             </a>
             <CookieSettingsButton className="font-semibold text-white/70 transition hover:text-white" />
             {footerLinks.map((link) => (
