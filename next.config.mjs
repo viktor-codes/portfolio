@@ -1,6 +1,15 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
 	webpack(config) {
+		config.watchOptions = {
+			...(config.watchOptions ?? {}),
+			ignored: [
+				'**/.git/**',
+				'**/.next/**',
+				'**/node_modules/**',
+			],
+		}
+
 		// Grab the existing rule that handles SVG imports
 		const fileLoaderRule = config.module.rules.find(rule =>
 			rule.test?.test?.('.svg')

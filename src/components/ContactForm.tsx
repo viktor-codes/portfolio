@@ -7,7 +7,6 @@ type SubmitState = "idle" | "submitting" | "success" | "error";
 interface ContactFormValues {
   name: string;
   email: string;
-  phone: string;
   message: string;
   companyWebsite: string; // honeypot
 }
@@ -16,17 +15,34 @@ function isEmailLike(value: string): boolean {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.trim());
 }
 
+function SendIcon(props: React.SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" {...props}>
+      <path
+        d="M3.5 11.2 20.5 4.5l-6.7 17-2.6-7.1-7.7-3.2Z"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M20.5 4.5 11.2 14.4"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
 export function ContactForm() {
   const nameId = useId();
   const emailId = useId();
-  const phoneId = useId();
   const messageId = useId();
   const honeypotId = useId();
 
   const [values, setValues] = useState<ContactFormValues>({
     name: "",
     email: "",
-    phone: "",
     message: "",
     companyWebsite: "",
   });
@@ -70,7 +86,6 @@ export function ContactForm() {
         body: JSON.stringify({
           name: values.name.trim() || undefined,
           email: values.email.trim(),
-          phone: values.phone.trim() || undefined,
           message: values.message.trim(),
           companyWebsite: values.companyWebsite.trim(),
         }),
@@ -110,7 +125,6 @@ export function ContactForm() {
       setValues({
         name: "",
         email: "",
-        phone: "",
         message: "",
         companyWebsite: "",
       });
@@ -123,27 +137,27 @@ export function ContactForm() {
   }
 
   return (
-    <form onSubmit={onSubmit} className="w-full max-w-xl">
-      <div className="grid grid-cols-1 gap-4">
-        <div className="grid grid-cols-1 gap-1.5">
-          <label htmlFor={nameId} className="text-sm font-semibold">
-            Name (optional)
-          </label>
-          <input
-            id={nameId}
-            name="name"
-            autoComplete="name"
-            value={values.name}
-            onChange={(e) => setValues((v) => ({ ...v, name: e.target.value }))}
-            className="h-12 rounded-xl border border-gray-900/15 bg-white px-4 text-gray-900 outline-none transition placeholder:text-gray-900/50 focus:ring-2 focus:ring-gray-900/30"
-            placeholder="Jane Doe"
-          />
-        </div>
+    <form onSubmit={onSubmit} className="w-full">
+      <div className="grid grid-cols-1 gap-10">
+        <div className="grid grid-cols-1 gap-10">
+          <div className="grid grid-cols-1 gap-2">
+            <label htmlFor={nameId} className="sr-only">
+              Your name
+            </label>
+            <input
+              id={nameId}
+              name="name"
+              autoComplete="name"
+              value={values.name}
+              onChange={(e) => setValues((v) => ({ ...v, name: e.target.value }))}
+              className="h-12 w-full border-b-2 border-gray-900/30 bg-transparent px-0 text-gray-900 outline-none transition placeholder:text-gray-900/40 focus:border-gray-900/60"
+              placeholder="Your name"
+            />
+          </div>
 
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-          <div className="grid grid-cols-1 gap-1.5">
-            <label htmlFor={emailId} className="text-sm font-semibold">
-              Email
+          <div className="grid grid-cols-1 gap-2">
+            <label htmlFor={emailId} className="sr-only">
+              Your email
             </label>
             <input
               id={emailId}
@@ -155,47 +169,28 @@ export function ContactForm() {
               onChange={(e) =>
                 setValues((v) => ({ ...v, email: e.target.value }))
               }
-              className="h-12 rounded-xl border border-gray-900/15 bg-white px-4 text-gray-900 outline-none transition placeholder:text-gray-900/50 focus:ring-2 focus:ring-gray-900/30"
-              placeholder="jane@company.com"
+              className="h-12 w-full border-b-2 border-gray-900/30 bg-transparent px-0 text-gray-900 outline-none transition placeholder:text-gray-900/40 focus:border-gray-900/60"
+              placeholder="Your email"
               required
             />
           </div>
 
-          <div className="grid grid-cols-1 gap-1.5">
-            <label htmlFor={phoneId} className="text-sm font-semibold">
-              Phone (optional)
+          <div className="grid grid-cols-1 gap-2">
+            <label htmlFor={messageId} className="sr-only">
+              Your message
             </label>
-            <input
-              id={phoneId}
-              name="phone"
-              type="tel"
-              inputMode="tel"
-              autoComplete="tel"
-              value={values.phone}
+            <textarea
+              id={messageId}
+              name="message"
+              value={values.message}
               onChange={(e) =>
-                setValues((v) => ({ ...v, phone: e.target.value }))
+                setValues((v) => ({ ...v, message: e.target.value }))
               }
-              className="h-12 rounded-xl border border-gray-900/15 bg-white px-4 text-gray-900 outline-none transition placeholder:text-gray-900/50 focus:ring-2 focus:ring-gray-900/30"
-              placeholder="+353 87 123 4567"
+              className="min-h-28 w-full resize-y border-b-2 border-gray-900/30 bg-transparent px-0 py-2 text-gray-900 outline-none transition placeholder:text-gray-900/40 focus:border-gray-900/60"
+              placeholder="Your message"
+              required
             />
           </div>
-        </div>
-
-        <div className="grid grid-cols-1 gap-1.5">
-          <label htmlFor={messageId} className="text-sm font-semibold">
-            Message
-          </label>
-          <textarea
-            id={messageId}
-            name="message"
-            value={values.message}
-            onChange={(e) =>
-              setValues((v) => ({ ...v, message: e.target.value }))
-            }
-            className="min-h-32 resize-y rounded-xl border border-gray-900/15 bg-white px-4 py-3 text-gray-900 outline-none transition placeholder:text-gray-900/50 focus:ring-2 focus:ring-gray-900/30"
-            placeholder="Tell me what you’re building and what ‘done’ looks like."
-            required
-          />
         </div>
 
         {/* honeypot */}
@@ -213,13 +208,14 @@ export function ContactForm() {
           />
         </div>
 
-        <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
+        <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
           <button
             type="submit"
             disabled={!canSubmit}
-            className="inline-flex h-12 items-center justify-center rounded-xl bg-gray-900 px-6 font-semibold text-white transition hover:bg-gray-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-900 disabled:cursor-not-allowed disabled:opacity-60"
+            className="inline-flex h-12 items-center justify-center gap-2 rounded-xl bg-gray-900 px-6 font-semibold text-white transition hover:bg-gray-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-900 disabled:cursor-not-allowed disabled:opacity-60"
           >
-            {submitState === "submitting" ? "Sending..." : "Send message"}
+            <SendIcon className="size-5" />
+            {submitState === "submitting" ? "Sending..." : "Send Message"}
           </button>
 
           <div className="text-sm" aria-live="polite" aria-atomic="true">
