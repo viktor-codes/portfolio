@@ -1,7 +1,17 @@
 import { Card } from "@/components/Card";
 import { SectionHeader } from "@/components/SectionHeader";
-import Image from "next/image";
 import { Fragment } from "react";
+
+function getInitials(name: string): string {
+  return name
+    .trim()
+    .split(/\s+/)
+    .slice(0, 2)
+    .map((part) => part[0]?.toUpperCase())
+    .filter(Boolean)
+    .join("");
+}
+
 const testimonials = [
   {
     name: "Alex Turner",
@@ -50,11 +60,9 @@ export const TestimonialsSection = () => {
                   >
                     <div className="flex items-center gap-4">
                       <div className="inline-flex size-14 flex-shrink-0 items-center justify-center rounded-full bg-gray-700">
-                        <Image
-                          src={testimonial.avatar}
-                          alt={testimonial.name}
-                          className="max-h-full"
-                        />
+                        <span className="text-sm font-semibold text-white/80">
+                          {getInitials(testimonial.name)}
+                        </span>
                       </div>
                       <div className="">
                         <div className="font-semibold">{testimonial.name}</div>
