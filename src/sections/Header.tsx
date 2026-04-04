@@ -24,6 +24,9 @@ export const Header = () => {
           <a href="/#faq" className="nav-item">
             FAQ
           </a>
+          <a href="/offer" className="nav-item">
+            Offer
+          </a>
           <a
             href="/#contact"
             className="nav-item bg-white text-gray-900 hover:bg-white/70 hover:text-gray-900"

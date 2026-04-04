@@ -15,17 +15,14 @@ import TypeScriptIcon from "@/assets/icons/typescript.svg";
 import VercelIcon from "@/assets/icons/vercel.svg";
 import bookImage from "@/assets/images/offer2.png";
 import mapImage from "@/assets/images/map.png";
-import smileMemoji from "@/assets/images/Subject 2.png";
 import { Card } from "@/components/Card";
 import { CardHeader } from "@/components/CardHeader";
 import { SectionHeader } from "@/components/SectionHeader";
 import { ToolboxItems } from "@/components/ToolboxItems";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 import { useRef } from "react";
-
-const STARTER_OFFER_PDF_HREF = "/ruramade-proposal.pdf";
-const STARTER_OFFER_PDF_FILENAME = "ruramade-proposal.pdf";
 
 const toolboxFrontendItems = [
   { title: "Next.js", iconType: NextJsIcon },
@@ -102,21 +99,20 @@ export const AboutSection = () => {
         />
         <div className="mt-20 flex flex-col gap-8">
           <div className="grid grid-cols-1 gap-8 md:grid-cols-5 lg:grid-cols-3">
-            <a
-              href={STARTER_OFFER_PDF_HREF}
-              download={STARTER_OFFER_PDF_FILENAME}
+            <Link
+              href="/offer"
               className="group block rounded-3xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-400 md:col-span-2 lg:col-span-1"
             >
               <Card className="h-[320px] cursor-pointer transition-[background-color,box-shadow] group-hover:bg-gray-800/80 group-hover:ring-1 group-hover:ring-white/10">
                 <CardHeader
                   title="My Offer"
-                  description="Get your website live in 10 days for a fixed fee. Click to download the full process"
+                  description="Fixed-fee landing page: scope, price, and timeline on one page — or download the PDF."
                 />
                 <div className="pointer-events-none mx-auto mt-2 w-40 md:mt-0">
-                  <Image src={bookImage} alt="Starter offer PDF preview" />
+                  <Image src={bookImage} alt="Starter offer preview" />
                 </div>
               </Card>
-            </a>
+            </Link>
             <Card className="h-[320px] md:col-span-3 lg:col-span-2">
               <CardHeader
                 className=""

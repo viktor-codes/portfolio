@@ -44,6 +44,12 @@ export const Footer = ({ showCookieSettings = true }: FooterProps) => {
               Terms
             </a>
             <a
+              href="/offer"
+              className="font-semibold text-white/70 transition hover:text-white"
+            >
+              Offer
+            </a>
+            <a
               href={CONTACT_TEL_HREF}
               className="font-semibold text-white/70 transition hover:text-white"
             >
