@@ -1,6 +1,7 @@
 "use client";
 
 import SendIcon from "@/assets/icons/send.svg";
+import { Button } from "@/components/button";
 import { useId, useMemo, useState } from "react";
 
 type SubmitState = "idle" | "submitting" | "success" | "error";
@@ -74,9 +75,9 @@ export function ContactForm() {
       });
 
       if (!response.ok) {
-        const payload = (await response.json().catch(() => null)) as
-          | { error?: string }
-          | null;
+        const payload = (await response.json().catch(() => null)) as {
+          error?: string;
+        } | null;
         setSubmitState("error");
         if (response.status === 429) {
           const retryAfterHeader = response.headers.get("retry-after");
@@ -86,7 +87,8 @@ export function ContactForm() {
           setErrorMessage(
             Number.isFinite(retryAfterSeconds) && retryAfterSeconds > 0
               ? `Too many attempts. Please try again in ${Math.ceil(retryAfterSeconds)}s.`
-              : payload?.error ?? "Too many attempts. Please try again shortly.",
+              : (payload?.error ??
+                  "Too many attempts. Please try again shortly."),
           );
           return;
         }
@@ -99,7 +101,9 @@ export function ContactForm() {
           return;
         }
 
-        setErrorMessage(payload?.error ?? "Please check your details and try again.");
+        setErrorMessage(
+          payload?.error ?? "Please check your details and try again.",
+        );
         return;
       }
 
@@ -131,7 +135,9 @@ export function ContactForm() {
               name="name"
               autoComplete="name"
               value={values.name}
-              onChange={(e) => setValues((v) => ({ ...v, name: e.target.value }))}
+              onChange={(e) =>
+                setValues((v) => ({ ...v, name: e.target.value }))
+              }
               className="h-12 w-full border-b-2 border-gray-900/30 bg-transparent px-0 text-gray-900 outline-none transition placeholder:text-gray-900/40 focus:border-gray-900/60"
               placeholder="Your name"
             />
@@ -191,14 +197,10 @@ export function ContactForm() {
         </div>
 
         <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-          <button
-            type="submit"
-            disabled={!canSubmit}
-            className="inline-flex h-12 items-center justify-center gap-2 rounded-xl bg-gray-900 px-6 font-semibold text-white transition hover:bg-gray-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-900 disabled:cursor-not-allowed disabled:opacity-60"
-          >
+          <Button type="submit" disabled={!canSubmit}>
             <SendIcon className="size-5" />
             {submitState === "submitting" ? "Sending..." : "Send Message"}
-          </button>
+          </Button>
 
           <div className="text-sm" aria-live="polite" aria-atomic="true">
             {submitState === "success" ? (

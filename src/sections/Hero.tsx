@@ -6,6 +6,7 @@ import CodeXml from "@/assets/icons/code-xml.svg";
 import Cog from "@/assets/icons/cog.svg";
 import grainImage from "@/assets/images/grain.jpg";
 
+import { Button } from "@/components/button";
 import { HeroOrbit } from "@/components/HeroOrbit";
 
 export const HeroSection = () => {
@@ -125,19 +126,13 @@ export const HeroSection = () => {
           </p>
         </div>
         <div className="mt-8 flex flex-col items-center justify-center gap-4 md:flex-row">
-          <a
-            href="#projects"
-            className="inline-flex h-12 cursor-pointer items-center gap-2 rounded-xl border border-white/15 px-6 font-semibold transition hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/40"
-          >
+          <Button variant="outline" href="#projects">
             Explore My Work
             <ArrowDown className="size-4 shrink-0" aria-hidden />
-          </a>
-          <a
-            href="#contact"
-            className="inline-flex h-12 cursor-pointer items-center gap-2 rounded-xl border border-white bg-white px-6 font-semibold text-gray-900 transition hover:bg-white/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
-          >
+          </Button>
+          <Button variant="inverse" href="#contact">
             Let's Connect
-          </a>
+          </Button>
         </div>
       </div>
     </div>

@@ -17,30 +17,31 @@ export const ContactSection = () => {
     <div id="contact" className="scroll-mt-24 py-16 pt-12 lg:py-24 lg:pt-20">
       <div className="container">
         <div className="relative z-0 overflow-hidden rounded-3xl bg-gradient-to-r from-emerald-300 to-sky-400 px-10 py-8 text-center text-gray-900 md:text-left">
-          <div className="flex flex-col gap-10 md:flex-row md:items-start md:gap-16">
-            <div className="md:max-w-sm">
-              <h2 className="text-balance font-serif text-3xl leading-tight md:text-4xl">
-                Let’s discuss on something{" "}
-                <span className="text-emerald-700">cool</span> together
-              </h2>
-              <div className="mt-8 space-y-3 text-sm font-semibold md:text-base">
-                <a
-                  href={CONTACT_EMAIL_HREF}
-                  className="inline-flex items-center gap-2 text-gray-900/80 transition hover:text-gray-900"
-                >
-                  <MailIcon className="size-5" />
-                  {CONTACT_EMAIL}
-                </a>
-                <a
-                  href={CONTACT_TEL_HREF}
-                  className="inline-flex items-center gap-2 text-gray-900/80 transition hover:text-gray-900"
-                >
-                  <PhoneIcon className="size-5" />
-                  {CONTACT_TEL_LABEL}
-                </a>
+          <div className="flex flex-col gap-8 md:flex-row md:items-stretch">
+            <div className="flex flex-col">
+              <div className="flex flex-col gap-0 md:gap-4">
+                <h2 className="text-balance font-serif text-3xl leading-tight md:text-4xl">
+                  Let’s discuss on something cool together
+                </h2>
+                <div className="mt-8 space-y-8 text-sm font-semibold md:text-base">
+                  <a
+                    href={CONTACT_EMAIL_HREF}
+                    className="inline-flex items-center gap-2 text-gray-900/80 transition hover:text-gray-900"
+                  >
+                    <MailIcon className="size-5" />
+                    {CONTACT_EMAIL}
+                  </a>
+                  <a
+                    href={CONTACT_TEL_HREF}
+                    className="inline-flex items-center gap-2 text-gray-900/80 transition hover:text-gray-900"
+                  >
+                    <PhoneIcon className="size-5" />
+                    {CONTACT_TEL_LABEL}
+                  </a>
+                </div>
               </div>
 
-              <div className="mt-6 flex items-center justify-center gap-4 md:justify-start">
+              <div className="mt-6 flex items-center justify-center gap-4 md:mt-auto md:justify-start md:pt-8">
                 <a
                   href="https://www.linkedin.com/in/viktor-codes/"
                   target="_blank"
@@ -62,7 +63,7 @@ export const ContactSection = () => {
               </div>
             </div>
 
-            <div className="w-full max-w-xl rounded-3xl bg-white/90 p-6 text-left shadow-sm ring-1 ring-gray-900/10 backdrop-blur md:p-10">
+            <div className="w-full max-w-xl text-left">
               <ContactForm />
             </div>
           </div>
