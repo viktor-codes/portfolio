@@ -32,7 +32,7 @@ const stats: StatItem[] = [
   },
   {
     value: "88%",
-    text: "of online consumers are less likely to return to a site after a bad experience",
+    text: "of online consumers are less likely to return to a site after a bad experience.",
     sourceHref:
       "https://montereypremier.com/wp-content/uploads/2019/10/201110_why_web_performance_matters.pdf",
     sourceLabel: "Why Web Performance Matters (PDF)",
@@ -109,23 +109,17 @@ export const ManifestoSection = () => {
   return (
     <section id="manifesto" className="scroll-mt-24 py-16 lg:py-24">
       <div className="container">
-        <SectionHeader eyebrow="Manifesto" title="" description="" />
-        <h2 className="mt-6 text-balance text-center font-serif text-3xl md:text-5xl">
-          Your business exists.
-          <br />
-          Does the internet know that?
-        </h2>
-
-        <div className="mx-auto mt-10 flex max-w-4xl flex-col gap-6 md:mt-16">
-          {manifestoIntroParagraphs.map((paragraph) => (
-            <p
-              key={paragraph}
-              className="text-pretty text-center text-white/70 md:text-lg lg:text-start lg:text-xl"
-            >
-              {paragraph}
-            </p>
-          ))}
-        </div>
+        <SectionHeader
+          eyebrow="Manifesto"
+          title={
+            <>
+              Your business exists.
+              <br />
+              Does the internet know that?
+            </>
+          }
+          descriptionParagraphs={manifestoIntroParagraphs}
+        />
 
         <div className="mx-auto mt-10 grid max-w-4xl grid-cols-1 gap-6 md:mt-14 md:grid-cols-3">
           {stats.map((item) => (
@@ -156,9 +150,9 @@ export const ManifestoSection = () => {
 
         <div className="mx-auto mt-10 max-w-4xl md:mt-14">
           <h3 className="text-start font-serif text-2xl md:text-3xl">
-            Things we hear.
+            Things I hear.
             <br />
-            <span className="text-emerald-600">Things we need to address.</span>
+            <span className="text-emerald-600">Things I need to address.</span>
           </h3>
           <Accordion
             idPrefix="manifesto-myths"
@@ -183,15 +177,15 @@ export const ManifestoSection = () => {
               unoptimized
               className="h-auto w-[min(100%,160px)] brightness-0 invert md:w-[220px]"
             />
-            <p className="sr-only">Viktor Rura, Founder of Ruramade</p>
+            <p className="sr-only">Viktor Rura, Founder of RuraMade</p>
           </div>
         </div>
 
         <div className="mx-auto mt-10 max-w-4xl md:mt-14">
           <h3 className="text-center font-serif text-2xl md:text-3xl">
             How{" "}
-            <span className="bg-gradient-to-r from-sky-400 to-emerald-300 bg-clip-text text-transparent">
-              RURAMADE
+            <span className="bg-gradient-to-r from-sky-400 to-emerald-300 bg-clip-text font-semibold text-transparent">
+              RuraMade
             </span>{" "}
             is different
           </h3>

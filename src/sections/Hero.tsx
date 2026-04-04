@@ -2,6 +2,7 @@
 
 import ArrowDown from "@/assets/icons/arrow-down.svg";
 import Braces from "@/assets/icons/braces.svg";
+import CheckIcon from "@/assets/icons/check-circle.svg";
 import CodeXml from "@/assets/icons/code-xml.svg";
 import Cog from "@/assets/icons/cog.svg";
 import grainImage from "@/assets/images/grain.jpg";
@@ -115,23 +116,63 @@ export const HeroSection = () => {
         </div>
         <div className="mx-auto max-w-lg">
           <h1 className="line-height-1.5 mt-6 text-balance text-center font-serif text-3xl tracking-wide md:text-5xl">
-            Websites and integrations for small businesses
+            High-performance websites that get you
             <br />
-            <span className="text-emerald-500">built to ship</span>
+            <span className="text-emerald-500">more customers</span>
           </h1>
-          <p className="mt-4 text-center text-white/60 md:text-lg">
-            I’m Viktor Rura, a full-stack developer in the Irish Midlands. Fast
-            Next.js sites, solid APIs, forms, email, and light integrations —
-            clear scope, no fluff.
-          </p>
+          <ul className="mx-auto mt-4 flex max-w-xl flex-col items-start justify-center space-y-5 text-left text-white/60 md:mt-12 md:text-lg">
+            <li className="flex gap-3">
+              <CheckIcon
+                className="mt-0.5 size-5 shrink-0 text-emerald-500"
+                aria-hidden
+              />
+              <span>
+                A site that converts{" "}
+                <span className="text-white">visitors into leads</span>
+                {" \u2014 "}not just looks pretty.
+              </span>
+            </li>
+            <li className="flex gap-3">
+              <CheckIcon
+                className="mt-0.5 size-5 shrink-0 text-emerald-500"
+                aria-hidden
+              />
+              <span>
+                <span className="text-white">Go live in under two weeks. </span>
+                No endless back-and-forth.
+              </span>
+            </li>
+            <li className="flex gap-3">
+              <CheckIcon
+                className="mt-0.5 size-5 shrink-0 text-emerald-500"
+                aria-hidden
+              />
+              <span>
+                Bookings, enquiry forms, emails
+                {" \u2014 "}
+                <span className="text-white">
+                  automations that save you hours/week
+                </span>
+                .
+              </span>
+            </li>
+          </ul>
         </div>
         <div className="mt-8 flex flex-col items-center justify-center gap-4 md:flex-row">
-          <Button variant="outline" href="#projects">
+          <Button
+            variant="outline"
+            href="#projects"
+            className="w-full md:w-auto"
+          >
             Explore My Work
             <ArrowDown className="size-4 shrink-0" aria-hidden />
           </Button>
-          <Button variant="inverse" href="#contact">
-            Let's Connect
+          <Button
+            variant="inverse"
+            href="#contact"
+            className="w-full md:w-auto"
+          >
+            Get a Quote
           </Button>
         </div>
       </div>
