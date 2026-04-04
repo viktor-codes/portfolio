@@ -3,11 +3,11 @@
 import ArrowUpRightIcon from "@/assets/icons/arrow-up-right.svg";
 import CogIcon from "@/assets/icons/cog.svg";
 import StarIcon from "@/assets/icons/star.svg";
+import { Accordion } from "@/components/accordion";
 import { Card } from "@/components/Card";
 import { SectionHeader } from "@/components/SectionHeader";
 import CheckIcon from "@/assets/icons/check-circle.svg";
 import Image from "next/image";
-import { useMemo, useState } from "react";
 
 interface StatItem {
   value: string;
@@ -89,10 +89,23 @@ const manifestoIntroParagraphs = [
   "A website isn't a luxury. It's the first conversation you have with someone who's already looking for you.",
 ] as const;
 
-export const ManifestoSection = () => {
-  const [openMyth, setOpenMyth] = useState<string | null>(null);
-  const accordionId = useMemo(() => "manifesto-myths", []);
+const mythAccordionItems = myths.map((item) => ({
+  id: item.myth,
+  label: (
+    <div className="mt-1 font-serif text-lg md:text-xl">“{item.myth}”</div>
+  ),
+  panel: (
+    <div className="flex gap-4 pt-2">
+      <div
+        className="w-1 shrink-0 self-stretch rounded-full bg-emerald-600"
+        aria-hidden
+      />
+      <p className="text-sm text-white/70 md:text-base">{item.truth}</p>
+    </div>
+  ),
+}));
 
+export const ManifestoSection = () => {
   return (
     <section id="manifesto" className="scroll-mt-24 py-16 lg:py-24">
       <div className="container">
@@ -147,73 +160,18 @@ export const ManifestoSection = () => {
             <br />
             <span className="text-emerald-600">Things we need to address.</span>
           </h3>
-          <div className="mt-6 flex flex-col gap-4">
-            {myths.map((item, index) => {
-              const isOpen = openMyth === item.myth;
-              return (
-                <div key={item.myth} className="p-0">
-                  <button
-                    type="button"
-                    className="w-full cursor-pointer py-5 text-left focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/40"
-                    aria-expanded={isOpen}
-                    aria-controls={`${accordionId}-panel-${index}`}
-                    id={`${accordionId}-trigger-${index}`}
-                    onClick={() =>
-                      setOpenMyth((v) => (v === item.myth ? null : item.myth))
-                    }
-                  >
-                    <div className="flex items-start justify-between gap-6">
-                      <div>
-                        <div className="mt-1 font-serif text-lg md:text-xl">
-                          “{item.myth}”
-                        </div>
-                      </div>
-                      <div
-                        className="mt-1 inline-flex size-8 flex-shrink-0 items-center justify-center text-white/70"
-                        aria-hidden
-                      >
-                        <span
-                          className={`inline-flex size-8 select-none items-center justify-center text-2xl font-light leading-none transition-transform duration-200 ${
-                            isOpen ? "rotate-45" : "rotate-0"
-                          }`}
-                        >
-                          +
-                        </span>
-                      </div>
-                    </div>
-                  </button>
-
-                  {isOpen ? (
-                    <div
-                      id={`${accordionId}-panel-${index}`}
-                      role="region"
-                      aria-labelledby={`${accordionId}-trigger-${index}`}
-                      className="pb-6"
-                    >
-                      <div className="flex gap-4 pt-2">
-                        <div
-                          className="w-1 shrink-0 self-stretch rounded-full bg-emerald-600"
-                          aria-hidden
-                        />
-                        <p className="text-sm text-white/70 md:text-base">
-                          {item.truth}
-                        </p>
-                      </div>
-                    </div>
-                  ) : null}
-
-                  <hr className="border-white/10" />
-                </div>
-              );
-            })}
-          </div>
+          <Accordion
+            idPrefix="manifesto-myths"
+            className="mt-6 flex flex-col gap-4"
+            items={mythAccordionItems}
+          />
         </div>
 
         <div className="mx-auto mt-16 max-w-5xl md:mt-32">
           <blockquote className="xl:text-6xl text-center font-serif text-3xl leading-normal text-white md:text-4xl lg:text-5xl">
             <span className="text-emerald-300">“ </span>A bad website is worse
-            than no website
-            <br />A great one works for you while you sleep
+            than no website.
+            <br />A great one works for you while you sleep.
             <span className="text-emerald-300"> ”</span>
           </blockquote>
           <div className="mt-2 flex flex-col items-end gap-4 md:mt-4">
