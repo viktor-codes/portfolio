@@ -121,7 +121,7 @@ export const ManifestoSection = () => {
           descriptionParagraphs={manifestoIntroParagraphs}
         />
 
-        <div className="mx-auto mt-10 grid max-w-4xl grid-cols-1 gap-6 md:mt-14 md:grid-cols-3">
+        <div className="mx-auto mt-10 grid max-w-4xl grid-cols-1 gap-6 md:mt-20 md:grid-cols-3">
           {stats.map((item) => (
             <Card
               key={item.value}
@@ -148,7 +148,7 @@ export const ManifestoSection = () => {
           ))}
         </div>
 
-        <div className="mx-auto mt-10 max-w-4xl md:mt-14">
+        <div className="mx-auto mt-10 max-w-4xl md:mt-20">
           <h3 className="text-start font-serif text-2xl md:text-3xl">
             Things I hear.
             <br />

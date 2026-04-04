@@ -1,3 +1,5 @@
+"use client";
+
 import ArrowUpRightIcon from "@/assets/icons/arrow-up-right.svg";
 import { CookieSettingsButton } from "@/components/cookie-settings-button";
 import { CONTACT_TEL_HREF } from "@/lib/contact";
@@ -13,7 +15,12 @@ const footerLinks = [
   },
 ];
 
-export const Footer = () => {
+type FooterProps = {
+  /** When false, hides cookie settings (e.g. global-error has no ConsentProvider). */
+  showCookieSettings?: boolean;
+};
+
+export const Footer = ({ showCookieSettings = true }: FooterProps) => {
   return (
     <footer className="relative z-10 overflow-x-clip">
       <div
@@ -42,7 +49,9 @@ export const Footer = () => {
             >
               Call
             </a>
-            <CookieSettingsButton className="font-semibold text-white/70 transition hover:text-white" />
+            {showCookieSettings ? (
+              <CookieSettingsButton className="font-semibold text-white/70 transition hover:text-white" />
+            ) : null}
             {footerLinks.map((link) => (
               <a
                 href={link.href}
