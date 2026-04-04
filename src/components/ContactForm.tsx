@@ -199,7 +199,7 @@ export function ContactForm() {
         <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
           <Button type="submit" disabled={!canSubmit}>
             <SendIcon className="size-5" />
-            {submitState === "submitting" ? "Sending..." : "Send Message"}
+            {submitState === "submitting" ? "Sending..." : "Send My Enquiry"}
           </Button>
 
           <div className="text-sm" aria-live="polite" aria-atomic="true">
