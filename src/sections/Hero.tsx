@@ -121,9 +121,9 @@ export const HeroSection = () => {
             <span className="text-emerald-500">more customers</span>
           </h1>
           <ul className="mx-auto mt-4 flex max-w-xl flex-col items-start justify-center space-y-5 text-left text-white/60 md:mt-12 md:text-lg">
-            <li className="flex gap-3">
+            <li className="flex items-center gap-3">
               <CheckIcon
-                className="mt-0.5 size-5 shrink-0 text-emerald-500"
+                className="size-5 shrink-0 text-emerald-500"
                 aria-hidden
               />
               <span>
@@ -132,9 +132,9 @@ export const HeroSection = () => {
                 {" \u2014 "}not just looks pretty.
               </span>
             </li>
-            <li className="flex gap-3">
+            <li className="flex items-center gap-3">
               <CheckIcon
-                className="mt-0.5 size-5 shrink-0 text-emerald-500"
+                className="size-5 shrink-0 text-emerald-500"
                 aria-hidden
               />
               <span>
@@ -142,9 +142,9 @@ export const HeroSection = () => {
                 No endless back-and-forth.
               </span>
             </li>
-            <li className="flex gap-3">
+            <li className="flex items-center gap-3">
               <CheckIcon
-                className="mt-0.5 size-5 shrink-0 text-emerald-500"
+                className="size-5 shrink-0 text-emerald-500"
                 aria-hidden
               />
               <span>
