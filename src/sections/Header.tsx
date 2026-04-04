@@ -3,7 +3,7 @@ export const Header = () => {
     <header className="fixed top-0 z-10 w-full bg-gray-900/75 py-2 backdrop-blur-md">
       <div className="container mx-auto flex items-center justify-between gap-3">
         <a href="/#top" className="shrink-0 transition hover:opacity-90">
-          <span className="bg-gradient-to-r from-sky-400 to-emerald-300 bg-clip-text font-mono text-2xl font-semibold text-transparent">
+          <span className="bg-gradient-to-r from-sky-400 to-emerald-300 bg-clip-text font-mono text-2xl font-semibold tracking-tight text-transparent">
             <span className="me-1.5">&lt;</span>
             RuraMade
             <span className="ms-1.5">/&gt;</span>
@@ -15,6 +15,9 @@ export const Header = () => {
           </a>
           <a href="/#about" className="nav-item">
             About
+          </a>
+          <a href="/#faq" className="nav-item">
+            FAQ
           </a>
           <a
             href="/#contact"
