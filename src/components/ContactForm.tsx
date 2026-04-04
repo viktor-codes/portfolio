@@ -1,5 +1,6 @@
 "use client";
 
+import SendIcon from "@/assets/icons/send.svg";
 import { useId, useMemo, useState } from "react";
 
 type SubmitState = "idle" | "submitting" | "success" | "error";
@@ -13,25 +14,6 @@ interface ContactFormValues {
 
 function isEmailLike(value: string): boolean {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.trim());
-}
-
-function SendIcon(props: React.SVGProps<SVGSVGElement>) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" {...props}>
-      <path
-        d="M3.5 11.2 20.5 4.5l-6.7 17-2.6-7.1-7.7-3.2Z"
-        stroke="currentColor"
-        strokeWidth="1.5"
-        strokeLinejoin="round"
-      />
-      <path
-        d="M20.5 4.5 11.2 14.4"
-        stroke="currentColor"
-        strokeWidth="1.5"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
 }
 
 export function ContactForm() {

@@ -2,12 +2,11 @@ export const Header = () => {
   return (
     <header className="fixed top-0 z-10 w-full bg-gray-900/75 py-2 backdrop-blur-md">
       <div className="container mx-auto flex items-center justify-between gap-3">
-        <a
-          href="/#top"
-          className="shrink-0 transition hover:opacity-90"
-        >
+        <a href="/#top" className="shrink-0 transition hover:opacity-90">
           <span className="bg-gradient-to-r from-sky-400 to-emerald-300 bg-clip-text font-mono text-2xl font-semibold text-transparent">
-            {"< RuraMade />"}
+            <span className="me-1.5">&lt;</span>
+            RuraMade
+            <span className="ms-1.5">/&gt;</span>
           </span>
         </a>
         <nav className="hidden gap-1 rounded-full border border-white/15 bg-white/10 p-0.5 backdrop-blur md:flex">
