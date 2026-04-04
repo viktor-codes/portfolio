@@ -43,7 +43,7 @@ export const ContactSection = () => {
                 </div>
               </div>
 
-              <div className="mt-6 flex items-center justify-center gap-4 md:mt-auto md:justify-start md:pt-8">
+              <div className="mt-6 flex items-center justify-start gap-4 md:mt-auto md:pt-8">
                 <a
                   href="https://www.linkedin.com/in/viktor-codes/"
                   target="_blank"

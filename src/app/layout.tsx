@@ -65,8 +65,7 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  // PNG + ICO only: favicon.svg is a 2000×2000 base64-in-SVG blob (~200KB) and Safari on
-  // iOS often fails to show it in tabs. Prefer raster icons for Apple platforms.
+  // Raster icons: reliable in Safari/iOS and other clients; SVG favicon omitted intentionally.
   icons: {
     icon: [
       { url: "/favicon-96x96.png", sizes: "96x96", type: "image/png" },
