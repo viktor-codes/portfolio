@@ -21,7 +21,8 @@ export const ContactSection = () => {
             <div className="flex flex-col">
               <div className="flex flex-col gap-0 md:gap-4">
                 <h2 className="text-balance font-serif text-3xl leading-tight md:text-4xl">
-                  Let’s discuss on something cool together
+                  Tell me about your project — I’ll reply within one business
+                  day.
                 </h2>
                 <div className="mt-8 space-y-8 text-sm font-semibold md:text-base">
                   <a
