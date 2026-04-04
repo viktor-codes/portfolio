@@ -65,9 +65,16 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
+  // PNG + ICO only: favicon.svg is a 2000×2000 base64-in-SVG blob (~200KB) and Safari on
+  // iOS often fails to show it in tabs. Prefer raster icons for Apple platforms.
   icons: {
-    icon: "/favicon.ico",
-    apple: "/apple-touch-icon.png",
+    icon: [
+      { url: "/favicon-96x96.png", sizes: "96x96", type: "image/png" },
+      { url: "/favicon.ico", sizes: "48x48 32x32", type: "image/x-icon" },
+    ],
+    apple: [
+      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+    ],
   },
 };
 
@@ -85,26 +92,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <head>
-        {/* Same-origin relative URLs so Safari never follows a wrong metadataBase host */}
-        <link
-          rel="icon"
-          href="/favicon.ico"
-          type="image/x-icon"
-        />
-        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-        <link
-          rel="icon"
-          href="/favicon-96x96.png"
-          sizes="96x96"
-          type="image/png"
-        />
-        <link
-          rel="apple-touch-icon"
-          href="/apple-touch-icon.png"
-          sizes="180x180"
-        />
-      </head>
       <body
         className={twMerge(
           inter.variable,
