@@ -29,7 +29,7 @@ export const Footer = ({ showCookieSettings = true }: FooterProps) => {
       />
       <div className="container relative">
         <div className="flex flex-col items-center gap-8 border-t border-white/15 py-6 text-sm md:flex-row md:justify-between">
-          <div className="text-white/40">&copy; 2026. All rights reserved.</div>
+          <div className="text-white/70">&copy; 2026. All rights reserved.</div>
           <nav className="flex flex-col items-center gap-8 md:flex-row">
             <a
               href="/privacy"
