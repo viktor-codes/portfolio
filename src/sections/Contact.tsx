@@ -24,7 +24,8 @@ export const ContactSection = () => {
                   Tell me about your project — I’ll reply within one business
                   day.
                 </h2>
-                <div className="mt-8 space-y-8 text-sm font-semibold md:text-base">
+
+                <div className="mt-8 flex flex-col items-start justify-center gap-4 text-sm font-semibold md:text-base">
                   <a
                     href={CONTACT_EMAIL_HREF}
                     className="inline-flex items-center gap-2 text-gray-900/80 transition hover:text-gray-900"

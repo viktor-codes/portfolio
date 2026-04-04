@@ -175,7 +175,7 @@ export function ContactForm() {
                 setValues((v) => ({ ...v, message: e.target.value }))
               }
               className="min-h-28 w-full resize-y border-b-2 border-gray-900/30 bg-transparent px-0 py-2 text-gray-900 outline-none transition placeholder:text-gray-900/40 focus:border-gray-900/60"
-              placeholder="Your message"
+              placeholder="What you need (e.g. new site, redesign, booking form, API), your timeline, and link to your current site or socials if any"
               required
             />
           </div>
