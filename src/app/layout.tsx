@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { SkipToMainLink } from "@/components/skip-to-main-link";
 import { CookieConsentRoot } from "@/components/cookie-consent/cookie-consent-root";
-import { getMetadataBase } from "@/lib/site";
+import { getCanonicalUrl, getMetadataBase } from "@/lib/site";
 import { Calistoga, Inter } from "next/font/google";
 import { twMerge } from "tailwind-merge";
 import "./globals.css";
@@ -21,6 +21,9 @@ const googleVerification = process.env.GOOGLE_SITE_VERIFICATION;
 
 export const metadata: Metadata = {
   metadataBase: getMetadataBase(),
+  alternates: {
+    canonical: getCanonicalUrl("/"),
+  },
   title: {
     default: "Web Design & Websites in Ireland | RuraMade",
     template: "%s | RuraMade",

@@ -1,14 +1,25 @@
 import type { Metadata } from "next";
+import { BreadcrumbStructuredData } from "@/components/seo/breadcrumb-structured-data";
+import { getCanonicalUrl } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Terms of Use",
   description:
     "Terms for using ruramade.dev and contacting RuraMade (Ireland).",
+  alternates: {
+    canonical: getCanonicalUrl("/terms"),
+  },
 };
 
 export default function TermsPage() {
   return (
     <div className="container flex flex-col items-center justify-center py-12 md:py-16">
+      <BreadcrumbStructuredData
+        items={[
+          { name: "Home", path: "/" },
+          { name: "Terms of Use", path: "/terms" },
+        ]}
+      />
       <h1 className="mt-8 font-serif text-3xl font-semibold md:text-4xl">
         Terms
       </h1>

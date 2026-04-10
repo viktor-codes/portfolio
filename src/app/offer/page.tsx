@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { BreadcrumbStructuredData } from "@/components/seo/breadcrumb-structured-data";
 import CheckIcon from "@/assets/icons/check-circle.svg";
 import { Button } from "@/components/button";
 import { Card } from "@/components/Card";
@@ -14,11 +15,15 @@ import {
   starterOfferIncludedItems,
   starterOfferNextSteps,
 } from "@/lib/starter-offer";
+import { getCanonicalUrl } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Website & Landing Page for Irish SMEs — Starter Offer",
   description:
     "Fixed-fee website creation in Ireland: one-page Next.js site, contact form, email, SEO basics, deploy — €650, ~7–10 working days. Irish Midlands; remote nationwide.",
+  alternates: {
+    canonical: getCanonicalUrl("/offer"),
+  },
   openGraph: {
     title: "Website & landing page offer for Irish businesses | RuraMade",
     description:
@@ -30,6 +35,12 @@ export const metadata: Metadata = {
 export default function OfferPage() {
   return (
     <div id="top">
+      <BreadcrumbStructuredData
+        items={[
+          { name: "Home", path: "/" },
+          { name: "Starter offer", path: "/offer" },
+        ]}
+      />
       <Header />
       <main
         id="main"

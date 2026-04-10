@@ -10,7 +10,7 @@ export const Header = () => {
   const isOfferPage = pathname === "/offer";
 
   return (
-    <header className="fixed top-0 z-50 w-full bg-gray-900/75 py-2 backdrop-blur-md">
+    <header className="fixed top-0 z-50 w-full bg-gray-900">
       <div className="container relative z-[60] mx-auto flex items-center justify-between gap-3">
         <Link
           href="/#top"

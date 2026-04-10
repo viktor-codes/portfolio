@@ -4,6 +4,9 @@ import { getSiteUrl, SITE_NAME, SITE_SAME_AS } from "@/lib/site";
 const SERVICE_DESCRIPTION =
   "Bespoke web design and website development for small businesses in Ireland. Fast Next.js sites, SEO fundamentals, forms and integrations — based in the Irish Midlands, working nationwide.";
 
+const HOME_PAGE_NAME =
+  "Web design and bespoke websites for Irish small businesses";
+
 export function HomeStructuredData() {
   const base = getSiteUrl();
   const graph: Record<string, unknown>[] = [
@@ -14,6 +17,21 @@ export function HomeStructuredData() {
       name: SITE_NAME,
       inLanguage: "en-IE",
       publisher: { "@id": `${base}/#business` },
+      mainEntityOfPage: { "@id": `${base}/#webpage` },
+    },
+    {
+      "@type": "WebPage",
+      "@id": `${base}/#webpage`,
+      url: `${base}/`,
+      name: HOME_PAGE_NAME,
+      description: SERVICE_DESCRIPTION,
+      inLanguage: "en-IE",
+      isPartOf: { "@id": `${base}/#website` },
+      about: { "@id": `${base}/#business` },
+      primaryImageOfPage: {
+        "@type": "ImageObject",
+        url: `${base}/og.jpg`,
+      },
     },
     {
       "@type": "ProfessionalService",
@@ -57,7 +75,7 @@ export function HomeStructuredData() {
   return (
     <script
       type="application/ld+json"
-      // JSON-L-LD must match visible FAQ copy (see faq-data.ts).
+      // JSON-LD FAQ must match visible FAQ copy (see faq-data.ts).
       dangerouslySetInnerHTML={{ __html: JSON.stringify(payload) }}
     />
   );
