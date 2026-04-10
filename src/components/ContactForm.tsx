@@ -246,7 +246,7 @@ export function ContactForm({ showSuccessPreview = false }: ContactFormProps) {
             >
               <motion.div
                 className={twMerge(
-                  "mx-auto aspect-square w-full overflow-hidden",
+                  "origin-center mx-auto aspect-square w-full overflow-hidden",
                   CONTACT_FORM_SUCCESS_ILLUSTRATION_LAYOUT.wrapperMaxWidthClass,
                 )}
                 initial={contactFormSuccessIllustration.initial}

@@ -11,9 +11,8 @@ export const CONTACT_FORM_BUTTON_CELEBRATION_MS = 520;
 export const CONTACT_FORM_SUCCESS_ILLUSTRATION_SRC = "/handshake.png";
 
 /**
- * Handshake is a heavy SVG-as-img (intrinsic 800×800 in the file). Size is
- * controlled only by the wrapper: `wrapperMaxWidthClass` + `aspect-square` +
- * `object-contain` on the <img>. Change max-w here to resize the graphic.
+ * Handshake asset size: `wrapperMaxWidthClass` + `aspect-square` + `object-contain`
+ * on the <img>. Change max-w here to resize the graphic.
  */
 export const CONTACT_FORM_SUCCESS_ILLUSTRATION_LAYOUT = {
   /** Hint for layout / a11y; does not set on-screen size (CSS box does). */
@@ -30,15 +29,36 @@ export const contactFormSuccessPanel = {
   transition: { type: "spring" as const, stiffness: 380, damping: 32 },
 };
 
-/** Handshake / illustration — runs after the panel starts settling (delay). */
+/**
+ * Handshake — bouncy spring (low damping) + slight rotation so it reads like
+ * hands meeting, not a flat fade-in.
+ */
 export const contactFormSuccessIllustration = {
-  initial: { opacity: 0, scale: 0.88, y: 6 },
-  animate: { opacity: 1, scale: 1, y: 0 },
+  initial: { opacity: 0, scale: 0.78, y: 14, rotate: -6 },
+  animate: { opacity: 1, scale: 1, y: 0, rotate: 0 },
   transition: {
-    type: "spring" as const,
-    stiffness: 340,
-    damping: 22,
-    delay: 0.1,
+    opacity: { duration: 0.2, delay: 0.06, ease: [0.22, 1, 0.36, 1] as const },
+    scale: {
+      type: "spring" as const,
+      stiffness: 520,
+      damping: 11,
+      mass: 0.92,
+      delay: 0.08,
+    },
+    y: {
+      type: "spring" as const,
+      stiffness: 440,
+      damping: 13,
+      mass: 1,
+      delay: 0.08,
+    },
+    rotate: {
+      type: "spring" as const,
+      stiffness: 280,
+      damping: 9,
+      mass: 0.75,
+      delay: 0.1,
+    },
   },
 };
 
