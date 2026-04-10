@@ -69,7 +69,8 @@
 	.animate-spin,
 	.animate-ping-large,
 	.animate-move-left,
-	.animate-move-right {
+	.animate-move-right,
+	.animate-offer-border-slide {
 		animation: none !important;
 	}
 }

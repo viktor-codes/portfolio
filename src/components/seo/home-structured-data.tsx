@@ -2,7 +2,7 @@ import { faqEntries } from "@/lib/faq-data";
 import { getSiteUrl, SITE_NAME, SITE_SAME_AS } from "@/lib/site";
 
 const SERVICE_DESCRIPTION =
-  "Custom Next.js websites for Irish businesses — built to bring customers, not just look pretty. Launch in ~10 days. Fixed-fee, SEO-ready, mobile-first. Based in the Midlands.";
+  "Custom Next.js websites for Irish businesses — built to bring customers, not just look pretty. Launch typically under two weeks. Fixed-fee, SEO-ready, mobile-first. Based in the Midlands.";
 
 const HOME_PAGE_NAME = "Web design for leads & enquiries — Ireland";
 

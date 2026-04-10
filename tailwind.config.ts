@@ -29,6 +29,7 @@ const config: Config = {
 				'ping-large': 'ping-large 1s ease-in-out infinite',
 				'move-left': 'move-left 1s linear infinite',
 				'move-right': 'move-right 1s linear infinite',
+				'offer-border-slide': 'offer-border-slide 10s linear infinite',
 			},
 			keyframes: {
 				'ping-large': {
@@ -51,6 +52,14 @@ const config: Config = {
 					},
 					'100%': {
 						transform: 'translateX(0)',
+					},
+				},
+				'offer-border-slide': {
+					'0%': {
+						backgroundPosition: '0% 50%',
+					},
+					'100%': {
+						backgroundPosition: '100% 50%',
 					},
 				},
 			},

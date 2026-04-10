@@ -97,18 +97,18 @@ export const AboutSection = () => {
         <SectionHeader
           eyebrow="About Me"
           title="How I work with clients"
-          description="From initial concept to final launch, I focus on transparent communication and building scalable solutions that drive business growth"
+          description="Plain-English updates, a defined scope, and no runaround — from first call to go-live. Fast, bespoke builds for Irish businesses; you always know what happens next."
         />
         <div className="mt-20 flex flex-col gap-8">
           <div className="grid grid-cols-1 gap-8 md:grid-cols-5 lg:grid-cols-3">
             <Link
               href="/offer"
-              className="group block rounded-3xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-400 md:col-span-2 lg:col-span-1"
+              className="group relative block h-[320px] overflow-hidden rounded-3xl bg-[linear-gradient(90deg,#6ee7b7_0%,#38bdf8_50%,#6ee7b7_100%)] bg-[length:200%_100%] bg-[position:0%_50%] p-px motion-safe:animate-offer-border-slide focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-400 md:col-span-2 lg:col-span-1"
             >
-              <Card className="h-[320px] cursor-pointer transition-[background-color,box-shadow] group-hover:bg-gray-800/80 group-hover:ring-1 group-hover:ring-white/10">
+              <Card className="relative z-10 flex h-full cursor-pointer flex-col transition-[background-color,box-shadow] group-hover:bg-gray-800/80 group-hover:ring-1 group-hover:ring-white/10">
                 <CardHeader
                   title="My Offer"
-                  description="Fixed-fee landing page: scope, price, and timeline on one page — or download the PDF."
+                  description="Fixed-fee starter: what’s included, what it costs, and when it ships — on the page or in the PDF."
                 />
                 <div className="pointer-events-none mx-auto mt-2 w-40 md:mt-0">
                   <Image
@@ -125,8 +125,8 @@ export const AboutSection = () => {
             <Card className="h-[320px] md:col-span-3 lg:col-span-2">
               <CardHeader
                 className=""
-                title="Technical Stack"
-                description="My go-to technologies for building fast and accessible web applications"
+                title="My Toolkit"
+                description="Trusted tools for fast loads, solid accessibility, and sites you’re not locked out of."
               />
               <ToolboxItems
                 className=""
@@ -143,8 +143,8 @@ export const AboutSection = () => {
           <div className="grid grid-cols-1 gap-8 md:grid-cols-5 lg:grid-cols-3">
             <Card className="flex h-[320px] flex-col md:col-span-3 lg:col-span-2">
               <CardHeader
-                title="Life Outside Logic"
-                description="From the ocean waves to the kitchen..."
+                title="My Life"
+                description="Off-screen recharge — surf, food, camping, and the odd dance floor."
                 className="px-6 py-6"
               />
 

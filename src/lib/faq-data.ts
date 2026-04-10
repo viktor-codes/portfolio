@@ -19,9 +19,9 @@ export const faqEntries: readonly FaqEntry[] = [
   },
   {
     id: "about-ten-days",
-    question: "What does “about 10 days” mean?",
+    question: "What does “under two weeks” mean?",
     answer:
-      "A typical starter scope goes from signed agreement and content received to launch in roughly 10 business days. If content or approvals slip, the timeline moves — I’ll flag that early.",
+      "For a typical starter scope — signed agreement and your content received — launch is usually roughly 7–10 working days. That’s what “under two weeks” on the homepage refers to. If content or approvals slip, the timeline moves — I’ll flag that early.",
   },
   {
     id: "pricing",

@@ -15,7 +15,7 @@ const calistoga = Calistoga({
 });
 
 const defaultDescription =
-  "Custom Next.js websites for Irish businesses — built to bring customers, not just look pretty. Launch in ~10 days. Fixed-fee, SEO-ready, mobile-first. Based in the Midlands.";
+  "Custom Next.js websites for Irish businesses — built to bring customers, not just look pretty. Launch typically under two weeks. Fixed-fee, SEO-ready, mobile-first. Based in the Midlands.";
 
 const googleVerification = process.env.GOOGLE_SITE_VERIFICATION;
 
