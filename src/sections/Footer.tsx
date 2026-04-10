@@ -48,7 +48,7 @@ export const Footer = ({ showCookieSettings = true }: FooterProps) => {
         <div className="border-t border-white/15 pb-6 pt-10">
           <div className="grid grid-cols-2 gap-x-6 gap-y-10 sm:gap-x-10 md:grid-cols-3 md:gap-x-12">
             <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-white/45">
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-white/65">
                 Navigate
               </p>
               <ul className="mt-4 flex flex-col gap-2.5">
@@ -66,7 +66,7 @@ export const Footer = ({ showCookieSettings = true }: FooterProps) => {
             </div>
 
             <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-white/45">
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-white/65">
                 Legal
               </p>
               <ul className="mt-4 flex flex-col gap-2.5">
@@ -91,7 +91,7 @@ export const Footer = ({ showCookieSettings = true }: FooterProps) => {
             </div>
 
             <div className="col-span-2 flex flex-col border-t border-white/10 pt-8 md:col-span-1 md:h-full md:border-t-0 md:pt-0">
-              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-white/45">
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-white/65">
                 Connect
               </p>
               <ul className="mt-4 flex flex-wrap gap-x-6 gap-y-3">
