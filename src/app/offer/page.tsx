@@ -62,7 +62,7 @@ export default function OfferPage() {
               href="/#contact"
               className="sm:min-w-[11rem]"
             >
-              Get a quote
+              Contact Me
             </Button>
             <Button
               variant="outline"
@@ -210,7 +210,7 @@ export default function OfferPage() {
 
           <div className="flex flex-col items-stretch gap-3 sm:flex-row sm:justify-center">
             <Button variant="inverse" href="/#contact">
-              Message Me
+              Contact Me
             </Button>
             <Button
               variant="outline"

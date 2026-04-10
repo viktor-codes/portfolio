@@ -172,7 +172,7 @@ export const HeroSection = () => {
             href="#contact"
             className="w-full md:w-auto"
           >
-            Get a Quote
+            Contact Me
           </Button>
         </div>
       </div>
