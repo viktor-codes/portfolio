@@ -1,10 +1,13 @@
 "use client";
 
+import MenuIcon from "@/assets/icons/menu.svg";
+import XIcon from "@/assets/icons/x.svg";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useCallback, useEffect, useId, useState } from "react";
 
 const MOBILE_NAV_LINKS = [
+  { label: "Home", href: "/#top" },
   { label: "Projects", href: "/#projects" },
   { label: "About", href: "/#about" },
   { label: "FAQ", href: "/#faq" },
@@ -49,29 +52,23 @@ export function MobileNav() {
         onClick={() => setIsMenuOpen((open) => !open)}
       >
         {isMenuOpen ? (
-          <span className="text-2xl font-light leading-none" aria-hidden>
-            ×
-          </span>
+          <XIcon className="size-6 shrink-0" aria-hidden />
         ) : (
-          <span className="flex w-5 flex-col gap-1" aria-hidden>
-            <span className="h-0.5 w-full rounded-full bg-white" />
-            <span className="h-0.5 w-full rounded-full bg-white" />
-            <span className="h-0.5 w-full rounded-full bg-white" />
-          </span>
+          <MenuIcon className="size-6 shrink-0" aria-hidden />
         )}
       </button>
 
       {isMenuOpen ? (
-        <div className="fixed inset-0 z-40 md:hidden" role="presentation">
+        <div className="fixed inset-0 z-40 mx-2 md:hidden" role="presentation">
           <button
             type="button"
-            className="absolute inset-0 bg-black/60"
+            className="absolute inset-0"
             aria-label="Close menu"
             onClick={closeMenu}
           />
           <nav
             id={menuId}
-            className="absolute right-0 top-16 z-50 m-3 mt-4 w-[min(20rem,calc(100%-1.5rem))] rounded-2xl border border-white/15 bg-gray-900/95 p-4 shadow-xl backdrop-blur-md"
+            className="absolute top-12 z-50 mt-4 w-full rounded-2xl border border-white/15 bg-gray-900/95 p-4 shadow-xl backdrop-blur-md"
             aria-label="Main"
           >
             <ul className="flex flex-col gap-1">
