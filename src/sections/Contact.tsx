@@ -14,9 +14,9 @@ import {
 
 export const ContactSection = () => {
   return (
-    <div id="contact" className="scroll-mt-24 py-16 pt-12 lg:py-24 lg:pt-20">
-      <div className="container">
-        <div className="relative z-0 overflow-hidden rounded-3xl bg-gradient-to-r from-emerald-300 to-sky-400 px-10 py-8 text-center text-gray-900 md:text-left">
+    <div id="contact" className="scroll-mt-24 py-16 pt-12 lg:py-24">
+      <div className="container rounded-xl bg-gradient-to-r from-emerald-300 to-sky-400">
+        <div className="relative z-0 py-8 text-center text-gray-900 md:text-left">
           {/*
             Mobile: headline → form → contacts → social (form right after the promise).
             md+: two columns unchanged — left stack + form spanning full height; social
