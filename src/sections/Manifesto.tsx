@@ -164,13 +164,12 @@ export const ManifestoSection = () => {
           <div className="mt-2 flex flex-col items-end gap-4 md:mt-4">
             <Image
               src="/signature.svg"
-              alt=""
+              alt="Signature: Viktor Rura, founder of RuraMade"
               width={300}
               height={150}
               unoptimized
               className="h-auto w-[min(100%,160px)] brightness-0 invert md:w-[220px]"
             />
-            <p className="sr-only">Viktor Rura, Founder of RuraMade</p>
           </div>
         </div>
 

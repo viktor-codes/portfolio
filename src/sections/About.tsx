@@ -111,7 +111,14 @@ export const AboutSection = () => {
                   description="Fixed-fee landing page: scope, price, and timeline on one page — or download the PDF."
                 />
                 <div className="pointer-events-none mx-auto mt-2 w-40 md:mt-0">
-                  <Image src={bookImage} alt="Starter offer preview" />
+                  <Image
+                    src={bookImage}
+                    alt="Starter offer preview"
+                    width={320}
+                    height={525}
+                    sizes="160px"
+                    className="h-auto w-full"
+                  />
                 </div>
               </Card>
             </Link>
@@ -161,11 +168,13 @@ export const AboutSection = () => {
                 ))}
               </div>
             </Card>
-            <Card className="relative h-[320px] p-0 md:col-span-2 lg:col-span-1">
+            <Card className="relative h-[320px] overflow-hidden p-0 md:col-span-2 lg:col-span-1">
               <Image
                 src={mapImage}
                 alt="Map — based in the Irish Midlands, Ireland"
-                className="h-full object-cover object-left-top"
+                fill
+                sizes="(min-width: 1024px) min(33vw, 24rem), 100vw"
+                className="object-cover object-left-top"
               />
               <div
                 className="-translate-x-1/5 absolute left-1/2 top-1/3 -translate-y-1/2"

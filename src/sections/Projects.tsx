@@ -102,11 +102,15 @@ export const ProjectsSection = () => {
                     <ArrowUpIcon className="size-4" />
                   </Button>
                 </div>
-                <div className="relative">
+                <div className="relative lg:h-full">
                   <Image
                     src={project.image}
                     alt={project.title}
-                    className="-mb-4 mt-8 md:-mb-0 lg:absolute lg:mt-0 lg:h-full lg:w-auto lg:max-w-none"
+                    width={800}
+                    height={507}
+                    sizes="(min-width: 1024px) min(50vw, 40rem), 100vw"
+                    priority={projectIndex === 0}
+                    className="-mb-4 mt-8 h-auto w-full max-w-full md:-mb-0 lg:absolute lg:right-0 lg:top-0 lg:mt-0 lg:h-full lg:w-auto lg:max-w-none lg:object-contain lg:object-right"
                   />
                 </div>
               </div>
