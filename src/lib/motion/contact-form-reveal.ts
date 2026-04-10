@@ -30,34 +30,34 @@ export const contactFormSuccessPanel = {
 };
 
 /**
- * Handshake — bouncy spring (low damping) + slight rotation so it reads like
- * hands meeting, not a flat fade-in.
+ * Handshake — large-amplitude entrance: starts small/low/tilted, then springs in
+ * with strong overshoot (low damping on scale & rotate).
  */
 export const contactFormSuccessIllustration = {
-  initial: { opacity: 0, scale: 0.78, y: 14, rotate: -6 },
+  initial: { opacity: 0, scale: 0.52, y: 48, rotate: -22 },
   animate: { opacity: 1, scale: 1, y: 0, rotate: 0 },
   transition: {
-    opacity: { duration: 0.2, delay: 0.06, ease: [0.22, 1, 0.36, 1] as const },
+    opacity: { duration: 0.22, delay: 0.04, ease: [0.22, 1, 0.36, 1] as const },
     scale: {
       type: "spring" as const,
-      stiffness: 520,
-      damping: 11,
-      mass: 0.92,
-      delay: 0.08,
+      stiffness: 460,
+      damping: 7.5,
+      mass: 1.05,
+      delay: 0.06,
     },
     y: {
       type: "spring" as const,
-      stiffness: 440,
-      damping: 13,
-      mass: 1,
-      delay: 0.08,
+      stiffness: 320,
+      damping: 10,
+      mass: 1.1,
+      delay: 0.06,
     },
     rotate: {
       type: "spring" as const,
-      stiffness: 280,
-      damping: 9,
-      mass: 0.75,
-      delay: 0.1,
+      stiffness: 220,
+      damping: 6.5,
+      mass: 0.85,
+      delay: 0.08,
     },
   },
 };
