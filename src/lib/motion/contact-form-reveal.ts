@@ -8,7 +8,7 @@
  */
 export const CONTACT_FORM_BUTTON_CELEBRATION_MS = 520;
 
-export const CONTACT_FORM_SUCCESS_ILLUSTRATION_SRC = "/handshake.svg";
+export const CONTACT_FORM_SUCCESS_ILLUSTRATION_SRC = "/handshake.png";
 
 /**
  * Handshake is a heavy SVG-as-img (intrinsic 800×800 in the file). Size is

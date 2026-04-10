@@ -227,10 +227,10 @@ export function ContactForm({ showSuccessPreview = false }: ContactFormProps) {
   return (
     <form
       onSubmit={handleSubmit(onValidSubmit, onInvalidSubmit)}
-      className="w-full"
+      className="w-full min-w-0"
       noValidate
     >
-      <motion.div layout className="grid grid-cols-1">
+      <motion.div layout className="grid min-w-0 grid-cols-1">
         <AnimatePresence mode="wait" initial={false}>
           {apiStatus === "success" ? (
             <motion.div
@@ -240,7 +240,7 @@ export function ContactForm({ showSuccessPreview = false }: ContactFormProps) {
               animate={contactFormSuccessPanel.animate}
               exit={contactFormSuccessPanel.exit}
               transition={contactFormSuccessPanel.transition}
-              className="flex flex-col gap-4 rounded-xl bg-white/55 p-5 text-gray-900 backdrop-blur-md"
+              className="flex min-w-0 flex-col gap-4 rounded-xl bg-white/55 p-4 text-gray-900 backdrop-blur-md sm:p-5"
               role="status"
               aria-live="polite"
             >
@@ -275,7 +275,7 @@ export function ContactForm({ showSuccessPreview = false }: ContactFormProps) {
                 onClick={handleSendAnother}
                 className={twMerge(
                   buttonVariants.outline,
-                  "border-gray-900/25 text-gray-900 hover:bg-gray-900/10",
+                  "w-full max-w-full border-gray-900/25 text-gray-900 hover:bg-gray-900/10 sm:w-auto",
                 )}
               >
                 Send another message
@@ -289,7 +289,7 @@ export function ContactForm({ showSuccessPreview = false }: ContactFormProps) {
               animate={contactFormFieldsPresence.animate}
               exit={contactFormFieldsPresence.exit}
               transition={contactFormFieldsPresence.transition}
-              className="grid grid-cols-1 gap-5"
+              className="grid min-w-0 grid-cols-1 gap-5"
             >
               <div className="grid grid-cols-1 gap-4">
                 <div>
@@ -410,7 +410,7 @@ export function ContactForm({ showSuccessPreview = false }: ContactFormProps) {
                 />
               </div>
 
-              <div className="flex flex-col gap-3 md:flex-row md:items-start md:justify-between">
+              <div className="flex min-w-0 flex-col gap-3 md:flex-row md:items-start md:justify-between">
                 <motion.button
                   type="submit"
                   disabled={isFieldsLocked}
@@ -420,7 +420,7 @@ export function ContactForm({ showSuccessPreview = false }: ContactFormProps) {
                   }
                   className={twMerge(
                     buttonVariants.primary,
-                    "relative min-w-[14rem] overflow-hidden",
+                    "relative w-full max-w-full min-w-0 overflow-hidden sm:w-auto sm:min-w-[12rem]",
                   )}
                 >
                   <AnimatePresence mode="wait" initial={false}>

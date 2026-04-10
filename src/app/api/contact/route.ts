@@ -199,7 +199,8 @@ export async function POST(request: Request) {
       subject,
       text,
     });
-  } catch {
+  } catch (err) {
+    console.error("[api/contact] outbound email failed:", err);
     return NextResponse.json(
       {
         ok: false,
