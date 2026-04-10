@@ -15,10 +15,7 @@ export const ContactFormSchema = z.object({
   message: z
     .string()
     .trim()
-    .min(
-      15,
-      "Add a bit more detail — at least 15 characters helps me reply usefully.",
-    )
+    .min(15, "Add a few more words so I can reply with something useful.")
     .max(8000, "Message is too long."),
   companyWebsite: z.string(),
 });

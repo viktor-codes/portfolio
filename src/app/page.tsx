@@ -10,7 +10,17 @@ import { ProjectsSection } from "@/sections/Projects";
 import { TapeSection } from "@/sections/Tape";
 // import { TestimonialsSection } from "@/sections/Testimonials";
 
-export default function Home() {
+type HomePageProps = {
+  searchParams: { contactSuccess?: string | string[] };
+};
+
+export default function Home({ searchParams }: HomePageProps) {
+  const contactSuccessParam = searchParams.contactSuccess;
+  const isContactSuccessPreview =
+    process.env.NODE_ENV === "development" &&
+    (contactSuccessParam === "1" ||
+      (Array.isArray(contactSuccessParam) && contactSuccessParam[0] === "1"));
+
   return (
     <div id="top">
       <HomeStructuredData />
@@ -23,7 +33,7 @@ export default function Home() {
         {/* <TestimonialsSection /> */}
         <AboutSection />
         <FaqSection />
-        <ContactSection />
+        <ContactSection showSuccessPreview={isContactSuccessPreview} />
       </main>
       <Footer />
     </div>

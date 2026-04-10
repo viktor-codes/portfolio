@@ -12,7 +12,14 @@ import {
   CONTACT_TEL_LABEL,
 } from "@/lib/contact";
 
-export const ContactSection = () => {
+type ContactSectionProps = {
+  /** Development only: open `/?contactSuccess=1#contact` to preview the thank-you state. */
+  showSuccessPreview?: boolean;
+};
+
+export const ContactSection = ({
+  showSuccessPreview = false,
+}: ContactSectionProps) => {
   return (
     <div id="contact" className="py-16 lg:py-24">
       <div className="container rounded-xl bg-gradient-to-r from-emerald-300 to-sky-400">
@@ -28,7 +35,7 @@ export const ContactSection = () => {
             </h2>
 
             <div className="col-start-1 row-start-2 w-full max-w-xl text-left md:col-start-2 md:row-span-3 md:row-start-1 md:max-w-none md:justify-self-stretch">
-              <ContactForm />
+              <ContactForm showSuccessPreview={showSuccessPreview} />
             </div>
 
             <div className="col-start-1 row-start-3 flex flex-col items-center gap-4 text-sm font-semibold md:items-start md:text-base">
