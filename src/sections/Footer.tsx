@@ -121,8 +121,8 @@ export const Footer = ({ showCookieSettings = true }: FooterProps) => {
                   src="/ruramade-logo.svg"
                   alt="RuraMade"
                   width={150}
-                  height={100}
-                  className=""
+                  height={28}
+                  className="h-7 w-auto"
                 />
               </Link>
             </div>

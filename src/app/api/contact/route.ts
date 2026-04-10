@@ -135,6 +135,15 @@ export async function POST(request: Request) {
     );
   }
 
+  const nameTrimmed =
+    typeof body.name === "string" ? body.name.trim() : "";
+  if (nameTrimmed.length < 2) {
+    return NextResponse.json(
+      { ok: false, error: "Name is required (at least 2 characters)." },
+      { status: 400 },
+    );
+  }
+
   if (!isNonEmptyString(body.message)) {
     return NextResponse.json(
       { ok: false, error: "Message is required." },
@@ -142,9 +151,19 @@ export async function POST(request: Request) {
     );
   }
 
+  const messageTrimmed =
+    typeof body.message === "string" ? body.message.trim() : "";
+  if (messageTrimmed.length < 15) {
+    return NextResponse.json(
+      {
+        ok: false,
+        error: "Message is too short. Please add a bit more detail.",
+      },
+      { status: 400 },
+    );
+  }
+
   const phone = typeof body.phone === "string" ? body.phone.trim() : "";
-  const nameTrimmed =
-    typeof body.name === "string" ? body.name.trim() : "";
 
   const fromEmail = process.env.RESEND_FROM_EMAIL;
   const toEmail = process.env.CONTACT_TO_EMAIL;
@@ -158,16 +177,14 @@ export async function POST(request: Request) {
     );
   }
 
-  const subject = nameTrimmed
-    ? `New contact: ${nameTrimmed} (${body.email.trim()})`
-    : `New contact: ${body.email.trim()}`;
+  const subject = `New contact: ${nameTrimmed} (${body.email.trim()})`;
   const text = [
-    nameTrimmed ? `Name: ${nameTrimmed}` : "Name: (not provided)",
+    `Name: ${nameTrimmed}`,
     `Email: ${body.email.trim()}`,
     phone ? `Phone: ${phone}` : "Phone: (not provided)",
     "",
     "Message:",
-    body.message.trim(),
+    messageTrimmed,
     "",
     `IP: ${ip}`,
     `UA: ${request.headers.get("user-agent") ?? "(unknown)"}`,

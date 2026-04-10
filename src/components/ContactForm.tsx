@@ -2,19 +2,35 @@
 
 import SendIcon from "@/assets/icons/send.svg";
 import { Button } from "@/components/button";
-import { useId, useMemo, useState } from "react";
+import {
+  ContactFormSchema,
+  type ContactFormValues,
+} from "@/lib/schemas/contact-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useEffect, useId, useRef, useState } from "react";
+import type { FieldErrors } from "react-hook-form";
+import { useForm } from "react-hook-form";
+import { twMerge } from "tailwind-merge";
 
-type SubmitState = "idle" | "submitting" | "success" | "error";
+type ApiStatus = "idle" | "success" | "error";
 
-interface ContactFormValues {
-  name: string;
-  email: string;
-  message: string;
-  companyWebsite: string; // honeypot
+function fieldClassName(hasError: boolean, multiline = false): string {
+  return twMerge(
+    "w-full border-b-2 bg-transparent px-0 text-gray-900 outline-none transition placeholder:text-gray-900/40",
+    multiline ? "min-h-[5.25rem] resize-y py-1.5" : "h-11",
+    hasError
+      ? "border-red-800/80 focus:border-red-900"
+      : "border-gray-900/30 focus:border-gray-900/60",
+  );
 }
 
-function isEmailLike(value: string): boolean {
-  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.trim());
+function RequiredMark() {
+  return (
+    <span className="font-semibold text-red-800" aria-hidden="true">
+      {" "}
+      *
+    </span>
+  );
 }
 
 export function ContactForm() {
@@ -23,54 +39,52 @@ export function ContactForm() {
   const messageId = useId();
   const honeypotId = useId();
 
-  const [values, setValues] = useState<ContactFormValues>({
-    name: "",
-    email: "",
-    message: "",
-    companyWebsite: "",
+  const successRef = useRef<HTMLDivElement>(null);
+  const [apiStatus, setApiStatus] = useState<ApiStatus>("idle");
+  const [apiErrorMessage, setApiErrorMessage] = useState("");
+
+  const {
+    register,
+    handleSubmit,
+    reset,
+    setFocus,
+    formState: { errors, isSubmitting },
+  } = useForm<ContactFormValues>({
+    resolver: zodResolver(ContactFormSchema),
+    mode: "onTouched",
+    defaultValues: {
+      name: "",
+      email: "",
+      message: "",
+      companyWebsite: "",
+    },
   });
-  const [submitState, setSubmitState] = useState<SubmitState>("idle");
-  const [errorMessage, setErrorMessage] = useState<string>("");
 
-  const canSubmit = useMemo(() => {
-    const hasRequired =
-      values.email.trim().length > 0 && values.message.trim().length > 0;
-    return (
-      hasRequired && isEmailLike(values.email) && submitState !== "submitting"
-    );
-  }, [submitState, values.email, values.message]);
-
-  async function onSubmit(event: React.FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    setErrorMessage("");
-
-    if (submitState === "success") {
-      setSubmitState("idle");
+  useEffect(() => {
+    if (apiStatus === "success" && successRef.current) {
+      successRef.current.scrollIntoView({ behavior: "smooth", block: "nearest" });
     }
+  }, [apiStatus]);
 
-    if (values.companyWebsite.trim().length > 0) {
-      // honeypot hit — pretend success to avoid giving feedback to bots
-      setSubmitState("success");
+  const onValidSubmit = async (data: ContactFormValues) => {
+    setApiErrorMessage("");
+    setApiStatus("idle");
+
+    if (data.companyWebsite.trim().length > 0) {
+      setApiStatus("success");
+      reset();
       return;
     }
-
-    if (!canSubmit) {
-      setSubmitState("error");
-      setErrorMessage("Please check your details and try again.");
-      return;
-    }
-
-    setSubmitState("submitting");
 
     try {
       const response = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          name: values.name.trim() || undefined,
-          email: values.email.trim(),
-          message: values.message.trim(),
-          companyWebsite: values.companyWebsite.trim(),
+          name: data.name,
+          email: data.email,
+          message: data.message,
+          companyWebsite: data.companyWebsite,
         }),
       });
 
@@ -78,13 +92,13 @@ export function ContactForm() {
         const payload = (await response.json().catch(() => null)) as {
           error?: string;
         } | null;
-        setSubmitState("error");
+        setApiStatus("error");
         if (response.status === 429) {
           const retryAfterHeader = response.headers.get("retry-after");
           const retryAfterSeconds = retryAfterHeader
             ? Number(retryAfterHeader)
             : NaN;
-          setErrorMessage(
+          setApiErrorMessage(
             Number.isFinite(retryAfterSeconds) && retryAfterSeconds > 0
               ? `Too many attempts. Please try again in ${Math.ceil(retryAfterSeconds)}s.`
               : (payload?.error ??
@@ -94,125 +108,197 @@ export function ContactForm() {
         }
 
         if (response.status >= 500) {
-          setErrorMessage(
+          setApiErrorMessage(
             payload?.error ??
               "Something went wrong on my side. Please try again later or reach out via LinkedIn.",
           );
           return;
         }
 
-        setErrorMessage(
+        setApiErrorMessage(
           payload?.error ?? "Please check your details and try again.",
         );
         return;
       }
 
-      setSubmitState("success");
-      setValues({
-        name: "",
-        email: "",
-        message: "",
-        companyWebsite: "",
-      });
+      setApiStatus("success");
+      reset();
     } catch {
-      setSubmitState("error");
-      setErrorMessage(
+      setApiStatus("error");
+      setApiErrorMessage(
         "Network error. Please try again, or reach out via LinkedIn.",
       );
     }
-  }
+  };
+
+  const onInvalidSubmit = (formErrors: FieldErrors<ContactFormValues>) => {
+    setApiErrorMessage("");
+    setApiStatus("idle");
+    const order: (keyof ContactFormValues)[] = ["name", "email", "message"];
+    for (const key of order) {
+      if (formErrors[key]) {
+        setFocus(key);
+        break;
+      }
+    }
+  };
 
   return (
-    <form onSubmit={onSubmit} className="w-full">
-      <div className="grid grid-cols-1 gap-10">
-        <div className="grid grid-cols-1 gap-10">
-          <div className="grid grid-cols-1 gap-2">
-            <label htmlFor={nameId} className="sr-only">
-              Your name
+    <form
+      onSubmit={handleSubmit(onValidSubmit, onInvalidSubmit)}
+      className="w-full"
+      noValidate
+    >
+      <div className="grid grid-cols-1 gap-5">
+        <div className="grid grid-cols-1 gap-4">
+          <div>
+            <label
+              htmlFor={nameId}
+              className="mb-1 block text-sm font-semibold text-gray-900"
+            >
+              Name
+              <RequiredMark />
+              <span className="sr-only"> (required)</span>
             </label>
             <input
-              id={nameId}
-              name="name"
+              type="text"
               autoComplete="name"
-              value={values.name}
-              onChange={(e) =>
-                setValues((v) => ({ ...v, name: e.target.value }))
-              }
-              className="h-12 w-full border-b-2 border-gray-900/30 bg-transparent px-0 text-gray-900 outline-none transition placeholder:text-gray-900/40 focus:border-gray-900/60"
-              placeholder="Your name"
+              readOnly={isSubmitting}
+              aria-required="true"
+              aria-invalid={errors.name ? "true" : "false"}
+              aria-describedby={errors.name ? `${nameId}-error` : undefined}
+              className={fieldClassName(Boolean(errors.name))}
+              placeholder="Jane Murphy"
+              {...register("name")}
+              id={nameId}
             />
+            {errors.name ? (
+              <p
+                id={`${nameId}-error`}
+                className="mt-1 text-sm text-red-900"
+                role="alert"
+              >
+                {errors.name.message}
+              </p>
+            ) : null}
           </div>
 
-          <div className="grid grid-cols-1 gap-2">
-            <label htmlFor={emailId} className="sr-only">
-              Your email
+          <div>
+            <label
+              htmlFor={emailId}
+              className="mb-1 block text-sm font-semibold text-gray-900"
+            >
+              Email
+              <RequiredMark />
+              <span className="sr-only"> (required)</span>
             </label>
             <input
-              id={emailId}
-              name="email"
               type="email"
               inputMode="email"
               autoComplete="email"
-              value={values.email}
-              onChange={(e) =>
-                setValues((v) => ({ ...v, email: e.target.value }))
-              }
-              className="h-12 w-full border-b-2 border-gray-900/30 bg-transparent px-0 text-gray-900 outline-none transition placeholder:text-gray-900/40 focus:border-gray-900/60"
-              placeholder="Your email"
-              required
+              readOnly={isSubmitting}
+              aria-required="true"
+              aria-invalid={errors.email ? "true" : "false"}
+              aria-describedby={errors.email ? `${emailId}-error` : undefined}
+              className={fieldClassName(Boolean(errors.email))}
+              placeholder="you@business.ie"
+              {...register("email")}
+              id={emailId}
             />
+            {errors.email ? (
+              <p
+                id={`${emailId}-error`}
+                className="mt-1 text-sm text-red-900"
+                role="alert"
+              >
+                {errors.email.message}
+              </p>
+            ) : null}
           </div>
 
-          <div className="grid grid-cols-1 gap-2">
-            <label htmlFor={messageId} className="sr-only">
-              Your message
+          <div>
+            <label
+              htmlFor={messageId}
+              className="mb-1 block text-sm font-semibold text-gray-900"
+            >
+              Project details
+              <RequiredMark />
+              <span className="sr-only"> (required)</span>
             </label>
+            <p className="mb-1.5 text-xs leading-snug text-gray-900/65">
+              Scope, timeline, and a link to your site or socials if you have
+              one.
+            </p>
             <textarea
-              id={messageId}
-              name="message"
-              value={values.message}
-              onChange={(e) =>
-                setValues((v) => ({ ...v, message: e.target.value }))
+              readOnly={isSubmitting}
+              aria-required="true"
+              aria-invalid={errors.message ? "true" : "false"}
+              aria-describedby={
+                errors.message ? `${messageId}-error` : undefined
               }
-              className="min-h-28 w-full resize-y border-b-2 border-gray-900/30 bg-transparent px-0 py-2 text-gray-900 outline-none transition placeholder:text-gray-900/40 focus:border-gray-900/60"
-              placeholder="What you need (e.g. new site, redesign, booking form, API), your timeline, and link to your current site or socials if any"
-              required
+              className={fieldClassName(Boolean(errors.message), true)}
+              placeholder="e.g. New one-page site for a Dublin studio — booking enquiries, launch in March…"
+              rows={3}
+              {...register("message")}
+              id={messageId}
             />
+            {errors.message ? (
+              <p
+                id={`${messageId}-error`}
+                className="mt-1 text-sm text-red-900"
+                role="alert"
+              >
+                {errors.message.message}
+              </p>
+            ) : null}
           </div>
         </div>
 
-        {/* honeypot */}
-        <div className="hidden">
+        <div className="hidden" aria-hidden="true">
           <label htmlFor={honeypotId}>Company website</label>
           <input
-            id={honeypotId}
-            name="companyWebsite"
-            value={values.companyWebsite}
-            onChange={(e) =>
-              setValues((v) => ({ ...v, companyWebsite: e.target.value }))
-            }
+            type="text"
             tabIndex={-1}
             autoComplete="off"
+            {...register("companyWebsite")}
+            id={honeypotId}
           />
         </div>
 
-        <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-          <Button type="submit" disabled={!canSubmit}>
-            <SendIcon className="size-5" />
-            {submitState === "submitting" ? "Sending..." : "Send My Enquiry"}
+        <div className="flex flex-col gap-3 md:flex-row md:items-start md:justify-between">
+          <Button type="submit" disabled={isSubmitting}>
+            <SendIcon className="size-5" aria-hidden />
+            {isSubmitting ? "Sending..." : "Send My Enquiry"}
           </Button>
 
-          <div className="text-sm" aria-live="polite" aria-atomic="true">
-            {submitState === "success" ? (
+          <div
+            ref={successRef}
+            className="text-sm md:max-w-sm md:text-right"
+            aria-live="polite"
+            aria-atomic="true"
+          >
+            {apiStatus === "success" ? (
               <span className="font-semibold text-gray-900">
-                Message sent. I’ll get back to you soon.
+                Message received — I’ll reply within one business day.
               </span>
             ) : null}
-            {submitState === "error" ? (
-              <span className="text-gray-900/80">{errorMessage}</span>
+            {apiStatus === "error" ? (
+              <span className="text-gray-900/85">{apiErrorMessage}</span>
             ) : null}
           </div>
         </div>
+
+        <p className="text-xs leading-snug text-gray-900/60">
+          By sending this, you agree I’ll use your details only to respond to
+          this enquiry — see{" "}
+          <a
+            href="/privacy"
+            className="font-semibold text-gray-900 underline underline-offset-2 hover:text-gray-900/80"
+          >
+            Privacy
+          </a>
+          .
+        </p>
       </div>
     </form>
   );

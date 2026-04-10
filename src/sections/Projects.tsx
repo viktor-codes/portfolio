@@ -58,7 +58,7 @@ export const ProjectsSection = () => {
         <SectionHeader
           eyebrow="Real-world Results"
           title="Featured Projects"
-          description="A selection of digital products built to solve complex problems through clean architecture and intuitive design."
+          description="Recent work where the goal was clear: more enquiries, smoother bookings, and getting a credible product live without dragging the timeline."
         />
 
         <div className="mt-10 flex flex-col gap-20 md:mt-20">

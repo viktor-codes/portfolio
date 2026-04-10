@@ -19,8 +19,10 @@ export const Header = () => {
           <Image
             src="/ruramade-logo.svg"
             alt="RuraMade"
-            width={180}
-            height={100}
+            width={176}
+            height={33}
+            className="h-7 w-auto"
+            priority
           />
         </Link>
         <nav
