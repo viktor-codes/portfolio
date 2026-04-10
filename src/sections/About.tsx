@@ -19,7 +19,7 @@ import { Card } from "@/components/Card";
 import { CardHeader } from "@/components/CardHeader";
 import { SectionHeader } from "@/components/SectionHeader";
 import { ToolboxItems } from "@/components/ToolboxItems";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { useRef } from "react";
@@ -89,6 +89,8 @@ const hobbies = [
 
 export const AboutSection = () => {
   const constraintRef = useRef(null);
+  const prefersReducedMotion = useReducedMotion();
+
   return (
     <div id="about" className="py-20 lg:py-28">
       <div className="container">
@@ -148,7 +150,7 @@ export const AboutSection = () => {
                       left: hobby.left,
                       top: hobby.top,
                     }}
-                    drag
+                    drag={prefersReducedMotion ? false : true}
                     dragConstraints={constraintRef}
                   >
                     <span className="font-medium text-gray-950">

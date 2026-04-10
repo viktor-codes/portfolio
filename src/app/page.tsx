@@ -15,14 +15,16 @@ export default function Home() {
     <div id="top">
       <HomeStructuredData />
       <Header />
-      <HeroSection />
-      <ProjectsSection />
-      <TapeSection />
-      <ManifestoSection />
-      {/* <TestimonialsSection /> */}
-      <AboutSection />
-      <FaqSection />
-      <ContactSection />
+      <main id="main" tabIndex={-1} className="outline-none">
+        <HeroSection />
+        <ProjectsSection />
+        <TapeSection />
+        <ManifestoSection />
+        {/* <TestimonialsSection /> */}
+        <AboutSection />
+        <FaqSection />
+        <ContactSection />
+      </main>
       <Footer />
     </div>
   );

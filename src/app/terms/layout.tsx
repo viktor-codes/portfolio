@@ -12,7 +12,13 @@ export default function TermsLayout({
       className="flex min-h-screen flex-col bg-gray-900 text-white antialiased"
     >
       <Header />
-      <main className="flex-1 pt-24 md:pt-28">{children}</main>
+      <main
+        id="main"
+        tabIndex={-1}
+        className="flex-1 pt-24 outline-none md:pt-28"
+      >
+        {children}
+      </main>
       <Footer />
     </div>
   );

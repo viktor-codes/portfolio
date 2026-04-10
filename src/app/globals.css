@@ -7,6 +7,12 @@
 		scroll-behavior: smooth;
 		scroll-padding-top: 3rem;
 	}
+
+	@media (prefers-reduced-motion: reduce) {
+		html {
+			scroll-behavior: auto;
+		}
+	}
 	.nav-item {
 		@apply px-4 py-1.5 rounded-full text-white/70 text-sm font-semibold hover:bg-white/10 hover:text-white transition duration-300;
 	}
@@ -17,5 +23,53 @@
 		.container {
 			@apply lg:max-w-5xl;
 		}
+	}
+}
+
+@layer components {
+	.skip-to-main {
+		position: absolute;
+		width: 1px;
+		height: 1px;
+		padding: 0;
+		margin: -1px;
+		overflow: hidden;
+		clip: rect(0, 0, 0, 0);
+		white-space: nowrap;
+		border-width: 0;
+	}
+
+	.skip-to-main:focus {
+		position: fixed;
+		left: 1rem;
+		top: 1rem;
+		z-index: 200;
+		width: auto;
+		height: auto;
+		margin: 0;
+		overflow: visible;
+		clip: auto;
+		white-space: normal;
+		padding: 0.75rem 1rem;
+		border-radius: 0.5rem;
+		background-color: #ffffff;
+		color: #111827;
+		font-size: 0.875rem;
+		font-weight: 600;
+		line-height: 1.25rem;
+		box-shadow:
+			0 10px 15px -3px rgb(0 0 0 / 0.1),
+			0 4px 6px -4px rgb(0 0 0 / 0.1);
+		outline: 2px solid rgb(52 211 153);
+		outline-offset: 2px;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.animate-spin,
+	.animate-ping-large,
+	.animate-move-left,
+	.animate-move-right {
+		animation: none !important;
 	}
 }

@@ -19,7 +19,11 @@ export function ErrorPageChrome({
       className="flex min-h-screen flex-col bg-gray-900 text-white antialiased"
     >
       <Header />
-      <main className="flex flex-1 flex-col justify-center pt-24 pb-12 md:pt-28 md:pb-16">
+      <main
+        id="main"
+        tabIndex={-1}
+        className="flex flex-1 flex-col justify-center pt-24 pb-12 outline-none md:pt-28 md:pb-16"
+      >
         {children}
       </main>
       <Footer showCookieSettings={showCookieSettingsInFooter} />

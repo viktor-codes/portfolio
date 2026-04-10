@@ -31,7 +31,11 @@ export default function OfferPage() {
   return (
     <div id="top">
       <Header />
-      <main className="pb-20 pt-28 lg:pt-32">
+      <main
+        id="main"
+        tabIndex={-1}
+        className="pb-20 pt-28 outline-none lg:pt-32"
+      >
         <div className="container max-w-3xl">
           <p className="text-center font-semibold uppercase tracking-widest text-emerald-300">
             Service proposal
@@ -183,7 +187,7 @@ export default function OfferPage() {
             </p>
           </section>
 
-          <section id="next-steps" className="scroll-mt-28">
+          <section id="next-steps" className="">
             <h2 className="font-serif text-2xl text-white md:text-3xl">
               Next steps
             </h2>

@@ -24,7 +24,7 @@ const faqAccordionItems = faqEntries.map((entry) => ({
 
 export const FaqSection = () => {
   return (
-    <section id="faq" className="scroll-mt-24 py-16 lg:py-24">
+    <section id="faq" className="py-16 lg:py-24">
       <div className="container">
         <SectionHeader
           eyebrow="FAQ"

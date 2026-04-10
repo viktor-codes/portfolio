@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import { SkipToMainLink } from "@/components/skip-to-main-link";
 import { CookieConsentRoot } from "@/components/cookie-consent/cookie-consent-root";
 import { getMetadataBase } from "@/lib/site";
 import { Calistoga, Inter } from "next/font/google";
@@ -104,7 +105,10 @@ export default function RootLayout({
           "bg-gray-900 font-sans text-white antialiased",
         )}
       >
-        <CookieConsentRoot>{children}</CookieConsentRoot>
+        <CookieConsentRoot>
+          <SkipToMainLink />
+          {children}
+        </CookieConsentRoot>
       </body>
     </html>
   );

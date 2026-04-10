@@ -14,7 +14,7 @@ import {
 
 export const ContactSection = () => {
   return (
-    <div id="contact" className="scroll-mt-24 py-16 pt-12 lg:py-24">
+    <div id="contact" className="py-16 pt-12 lg:py-24">
       <div className="container rounded-xl bg-gradient-to-r from-emerald-300 to-sky-400">
         <div className="relative z-0 py-8 text-center text-gray-900 md:text-left">
           {/*

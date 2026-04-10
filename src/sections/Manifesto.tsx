@@ -107,7 +107,7 @@ const mythAccordionItems = myths.map((item) => ({
 
 export const ManifestoSection = () => {
   return (
-    <section id="manifesto" className="scroll-mt-24 py-16 lg:py-24">
+    <section id="manifesto" className="py-16 lg:py-24">
       <div className="container">
         <SectionHeader
           eyebrow="Manifesto"
