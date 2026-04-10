@@ -68,7 +68,7 @@ export function MobileNav() {
           />
           <nav
             id={menuId}
-            className="absolute top-12 z-50 mt-4 w-full rounded-2xl border border-white/15 bg-gray-900/95 p-4 shadow-xl backdrop-blur-md"
+            className="absolute top-12 z-50 mt-4 w-full rounded-2xl border border-white/15 bg-gray-900 p-4 shadow-xl backdrop-blur-md"
             aria-label="Main"
           >
             <ul className="flex flex-col gap-1">
