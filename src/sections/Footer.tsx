@@ -7,6 +7,7 @@ import Link from "next/link";
 
 const siteNavLinks = [
   { label: "Projects", href: "/#projects" },
+  { label: "Manifesto", href: "/#manifesto" },
   { label: "About", href: "/#about" },
   { label: "FAQ", href: "/#faq" },
   { label: "Offer", href: "/offer" },

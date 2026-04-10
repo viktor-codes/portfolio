@@ -9,6 +9,7 @@ import { useCallback, useEffect, useId, useState } from "react";
 const MOBILE_NAV_LINKS = [
   { label: "Home", href: "/#top" },
   { label: "Projects", href: "/#projects" },
+  { label: "Manifesto", href: "/#manifesto" },
   { label: "About", href: "/#about" },
   { label: "FAQ", href: "/#faq" },
   { label: "Offer", href: "/offer" },

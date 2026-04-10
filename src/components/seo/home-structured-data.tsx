@@ -2,10 +2,9 @@ import { faqEntries } from "@/lib/faq-data";
 import { getSiteUrl, SITE_NAME, SITE_SAME_AS } from "@/lib/site";
 
 const SERVICE_DESCRIPTION =
-  "Bespoke web design and website development for small businesses in Ireland. Fast Next.js sites, SEO fundamentals, forms and integrations — based in the Irish Midlands, working nationwide.";
+  "Custom Next.js websites for Irish businesses — built to bring customers, not just look pretty. Launch in ~10 days. Fixed-fee, SEO-ready, mobile-first. Based in the Midlands.";
 
-const HOME_PAGE_NAME =
-  "Web design and bespoke websites for Irish small businesses";
+const HOME_PAGE_NAME = "Web design for leads & enquiries — Ireland";
 
 export function HomeStructuredData() {
   const base = getSiteUrl();

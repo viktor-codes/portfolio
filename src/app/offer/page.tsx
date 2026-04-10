@@ -30,6 +30,13 @@ export const metadata: Metadata = {
       "Fixed fee €650. Professional web design scope: responsive page, form, SEO fundamentals, analytics, deploy — in writing.",
     locale: "en_IE",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "Website & landing page offer for Irish businesses | RuraMade",
+    description:
+      "Fixed fee €650. One-page Next.js site, contact form, email, SEO basics, deploy — ~7–10 working days. Irish Midlands; remote nationwide.",
+    images: ["/og.jpg"],
+  },
 };
 
 export default function OfferPage() {

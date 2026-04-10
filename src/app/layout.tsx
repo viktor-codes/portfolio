@@ -15,7 +15,7 @@ const calistoga = Calistoga({
 });
 
 const defaultDescription =
-  "Web design and bespoke websites for Irish small businesses — fast Next.js builds, SEO fundamentals, forms and automations. Based in the Irish Midlands; clients across Ireland.";
+  "Custom Next.js websites for Irish businesses — built to bring customers, not just look pretty. Launch in ~10 days. Fixed-fee, SEO-ready, mobile-first. Based in the Midlands.";
 
 const googleVerification = process.env.GOOGLE_SITE_VERIFICATION;
 
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     canonical: getCanonicalUrl("/"),
   },
   title: {
-    default: "Web Design & Websites in Ireland | RuraMade",
+    default: "Web Design for Leads & Enquiries — Ireland | RuraMade",
     template: "%s | RuraMade",
   },
   description: defaultDescription,
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_IE",
-    title: "RuraMade — Web design & websites for businesses in Ireland",
+    title: "Web Design for Leads & Enquiries — Ireland | RuraMade",
     description: defaultDescription,
     siteName: "RuraMade",
     images: [
@@ -61,7 +61,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "RuraMade — Web design & websites in Ireland",
+    title: "Web Design for Leads & Enquiries — Ireland | RuraMade",
     description: defaultDescription,
     images: ["/og.jpg"],
   },

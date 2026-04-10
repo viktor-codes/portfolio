@@ -30,6 +30,9 @@ export const Header = () => {
           <Link href="/#projects" className="nav-item">
             Projects
           </Link>
+          <Link href="/#manifesto" className="nav-item">
+            Manifesto
+          </Link>
           <Link href="/#about" className="nav-item">
             About
           </Link>
