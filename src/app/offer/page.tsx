@@ -41,8 +41,8 @@ export default function OfferPage() {
           </h1>
           <p className="mx-auto mt-4 max-w-2xl text-center text-white/65 md:text-lg">
             Starter offer · fixed fee · one page. A fast, mobile-friendly site
-            with a contact form, email notifications, and deployment on
-            Vercel. You keep your domain — you own everything provided.
+            with a contact form, email notifications, and deployment on Vercel.
+            You keep your domain — you own everything provided.
           </p>
 
           <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
@@ -57,7 +57,11 @@ export default function OfferPage() {
           </div>
 
           <div className="mt-8 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:flex-wrap sm:justify-center">
-            <Button variant="inverse" href="/#contact" className="sm:min-w-[11rem]">
+            <Button
+              variant="inverse"
+              href="/#contact"
+              className="sm:min-w-[11rem]"
+            >
               Get a quote
             </Button>
             <Button
@@ -84,7 +88,10 @@ export default function OfferPage() {
             <Card className="mt-6 p-6 md:p-8">
               <ul className="flex flex-col gap-4">
                 {starterOfferIncludedItems.map((item) => (
-                  <li key={item} className="flex gap-3 text-sm text-white/70 md:text-base">
+                  <li
+                    key={item}
+                    className="flex gap-3 text-sm text-white/70 md:text-base"
+                  >
                     <CheckIcon
                       className="mt-0.5 size-5 shrink-0 text-emerald-400 md:size-6"
                       aria-hidden
@@ -139,7 +146,9 @@ export default function OfferPage() {
               <Card className="p-6 md:p-8">
                 <h3 className="font-semibold text-emerald-300">Timeline</h3>
                 <p className="mt-2 text-white/70">
-                  <span className="font-semibold text-white">7–10 working days</span>{" "}
+                  <span className="font-semibold text-white">
+                    7–10 working days
+                  </span>{" "}
                   after content + deposit are received. Both are required to
                   begin.
                 </p>
@@ -201,14 +210,14 @@ export default function OfferPage() {
 
           <div className="flex flex-col items-stretch gap-3 sm:flex-row sm:justify-center">
             <Button variant="inverse" href="/#contact">
-              Start with a message
+              Message Me
             </Button>
             <Button
               variant="outline"
               href={STARTER_OFFER_PDF_HREF}
               download={STARTER_OFFER_PDF_FILENAME}
             >
-              Download full PDF
+              Download PDF
             </Button>
           </div>
 
