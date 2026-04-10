@@ -3,6 +3,7 @@
 import ArrowUpRightIcon from "@/assets/icons/arrow-up-right.svg";
 import { CookieSettingsButton } from "@/components/cookie-settings-button";
 import Image from "next/image";
+import Link from "next/link";
 
 const siteNavLinks = [
   { label: "Projects", href: "/#projects" },
@@ -53,12 +54,12 @@ export const Footer = ({ showCookieSettings = true }: FooterProps) => {
               <ul className="mt-4 flex flex-col gap-2.5">
                 {siteNavLinks.map((link) => (
                   <li key={link.href}>
-                    <a
+                    <Link
                       href={link.href}
                       className={`text-sm ${footerLinkClass}`}
                     >
                       {link.label}
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -71,12 +72,12 @@ export const Footer = ({ showCookieSettings = true }: FooterProps) => {
               <ul className="mt-4 flex flex-col gap-2.5">
                 {legalLinks.map((link) => (
                   <li key={link.href}>
-                    <a
+                    <Link
                       href={link.href}
                       className={`text-sm ${footerLinkClass}`}
                     >
                       {link.label}
-                    </a>
+                    </Link>
                   </li>
                 ))}
                 {showCookieSettings ? (
@@ -111,7 +112,7 @@ export const Footer = ({ showCookieSettings = true }: FooterProps) => {
                   </li>
                 ))}
               </ul>
-              <a
+              <Link
                 href="/#top"
                 className="mt-auto hidden shrink-0 transition hover:opacity-90 md:block"
               >
@@ -122,7 +123,7 @@ export const Footer = ({ showCookieSettings = true }: FooterProps) => {
                   height={100}
                   className=""
                 />
-              </a>
+              </Link>
             </div>
           </div>
 

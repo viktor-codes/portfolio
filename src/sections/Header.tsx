@@ -27,15 +27,15 @@ export const Header = () => {
           className="hidden gap-1 rounded-full border border-white/15 bg-white/10 p-0.5 backdrop-blur md:flex"
           aria-label="Main"
         >
-          <a href="/#projects" className="nav-item">
+          <Link href="/#projects" className="nav-item">
             Projects
-          </a>
-          <a href="/#about" className="nav-item">
+          </Link>
+          <Link href="/#about" className="nav-item">
             About
-          </a>
-          <a href="/#faq" className="nav-item">
+          </Link>
+          <Link href="/#faq" className="nav-item">
             FAQ
-          </a>
+          </Link>
           {isOfferPage ? (
             <span
               className="nav-item cursor-default opacity-80"
@@ -44,16 +44,16 @@ export const Header = () => {
               Offer
             </span>
           ) : (
-            <a href="/offer" className="nav-item">
+            <Link href="/offer" className="nav-item">
               Offer
-            </a>
+            </Link>
           )}
-          <a
+          <Link
             href="/#contact"
             className="nav-item bg-white text-gray-900 hover:bg-white/70 hover:text-gray-900"
           >
             Contact
-          </a>
+          </Link>
         </nav>
 
         <MobileNav />

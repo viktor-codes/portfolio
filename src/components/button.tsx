@@ -1,5 +1,19 @@
-import { ComponentPropsWithoutRef } from "react";
+import Link from "next/link";
+import type { ComponentPropsWithoutRef } from "react";
 import { twMerge } from "tailwind-merge";
+
+function shouldUseNativeAnchor(href: string, rest: Record<string, unknown>): boolean {
+  if ("download" in rest) {
+    return true;
+  }
+  if (/^https?:\/\//i.test(href) || href.startsWith("//")) {
+    return true;
+  }
+  if (href.startsWith("mailto:") || href.startsWith("tel:")) {
+    return true;
+  }
+  return false;
+}
 
 export const buttonVariants = {
   primary:
@@ -39,10 +53,23 @@ export function Button(props: ButtonProps) {
   if ("href" in props && props.href !== undefined) {
     const { href, children, variant: _v, className: _c, ...rest } =
       props as ButtonAsAnchorProps;
+
+    if (shouldUseNativeAnchor(href, rest as Record<string, unknown>)) {
+      return (
+        <a href={href} className={mergedClassName} {...rest}>
+          {children}
+        </a>
+      );
+    }
+
     return (
-      <a href={href} className={mergedClassName} {...rest}>
+      <Link
+        href={href}
+        className={mergedClassName}
+        {...(rest as Omit<ComponentPropsWithoutRef<typeof Link>, "href" | "className">)}
+      >
         {children}
-      </a>
+      </Link>
     );
   }
 
