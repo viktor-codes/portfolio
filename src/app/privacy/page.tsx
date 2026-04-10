@@ -12,8 +12,8 @@ export const metadata: Metadata = {
 
 export default function PrivacyPage() {
   return (
-    <div className="text-prettypy-12 container flex flex-col items-center justify-center md:py-16">
-      <h1 className="mt-8font-serif text-3xl font-semibold md:text-4xl">
+    <div className="container flex flex-col items-center justify-center py-12 md:py-16">
+      <h1 className="font-serif text-3xl font-semibold md:text-4xl">
         Privacy Policy
       </h1>
       <p className="mt-2 text-sm text-white/60">Last updated: 30 March 2026</p>

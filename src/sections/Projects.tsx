@@ -3,6 +3,7 @@ import CheckIcon from "@/assets/icons/check-circle.svg";
 import Ruraphotography from "@/assets/images/ruraphotography.png";
 import Zeeframe from "@/assets/images/zeeframe.png";
 import Cosmiccase from "@/assets/images/cosmiccase.png";
+import { Button } from "@/components/button";
 import { Card } from "@/components/Card";
 import { SectionHeader } from "@/components/SectionHeader";
 import Image from "next/image";
@@ -90,16 +91,16 @@ export const ProjectsSection = () => {
                       </li>
                     ))}
                   </ul>
-                  <a
+                  <Button
                     href={projectHref(project.link)}
+                    variant="inverse"
+                    className="mt-8 w-full md:w-auto"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <button className="mt-8 inline-flex h-12 w-full items-center justify-center gap-2 rounded-xl bg-white px-6 font-semibold text-gray-950 md:w-auto">
-                      <span>Visit Live Site</span>
-                      <ArrowUpIcon className="size-4" />
-                    </button>
-                  </a>
+                    <span>Visit Live Site</span>
+                    <ArrowUpIcon className="size-4" />
+                  </Button>
                 </div>
                 <div className="relative">
                   <Image
