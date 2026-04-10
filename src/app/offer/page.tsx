@@ -16,13 +16,14 @@ import {
 } from "@/lib/starter-offer";
 
 export const metadata: Metadata = {
-  title: "Starter Landing Page Offer",
+  title: "Website & Landing Page for Irish SMEs — Starter Offer",
   description:
-    "Fixed-fee one-page website for small businesses: Next.js, forms, email, deploy — €650, ~7–10 working days. Irish Midlands, Ireland.",
+    "Fixed-fee website creation in Ireland: one-page Next.js site, contact form, email, SEO basics, deploy — €650, ~7–10 working days. Irish Midlands; remote nationwide.",
   openGraph: {
-    title: "Starter Landing Page Offer | RuraMade",
+    title: "Website & landing page offer for Irish businesses | RuraMade",
     description:
-      "Fixed fee €650. One responsive page, contact form, SEO basics, analytics, deploy — scope in writing.",
+      "Fixed fee €650. Professional web design scope: responsive page, form, SEO fundamentals, analytics, deploy — in writing.",
+    locale: "en_IE",
   },
 };
 

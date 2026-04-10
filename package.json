@@ -1,7 +1,7 @@
 {
 	"name": "portfolio-site-2",
 	"version": "0.1.0",
-	"homepage": "https://viktor-codes.vercel.app",
+	"homepage": "https://ruramade.dev",
 	"private": true,
 	"scripts": {
 		"dev": "next dev",

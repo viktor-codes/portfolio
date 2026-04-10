@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { CookieConsentRoot } from "@/components/cookie-consent/cookie-consent-root";
+import { getMetadataBase } from "@/lib/site";
 import { Calistoga, Inter } from "next/font/google";
 import { twMerge } from "tailwind-merge";
 import "./globals.css";
@@ -12,47 +13,52 @@ const calistoga = Calistoga({
   weight: ["400"],
 });
 
-function getMetadataBase(): URL {
-  if (process.env.NEXT_PUBLIC_SITE_URL) {
-    return new URL(process.env.NEXT_PUBLIC_SITE_URL);
-  }
-  // Production primary domain on Vercel (not preview deployment host)
-  const productionHost = process.env.VERCEL_PROJECT_PRODUCTION_URL;
-  if (productionHost) {
-    return new URL(`https://${productionHost}`);
-  }
-  if (process.env.VERCEL_URL) {
-    return new URL(`https://${process.env.VERCEL_URL}`);
-  }
-  return new URL("http://localhost:3000");
-}
+const defaultDescription =
+  "Web design and bespoke websites for Irish small businesses — fast Next.js builds, SEO fundamentals, forms and automations. Based in the Irish Midlands; clients across Ireland.";
+
+const googleVerification = process.env.GOOGLE_SITE_VERIFICATION;
 
 export const metadata: Metadata = {
   metadataBase: getMetadataBase(),
-  title: "RuraMade | High-Performance Websites & Integrations",
-  description:
-    "Bespoke websites for small businesses built to ship in 10 days. High-speed, SEO-optimized, and built with Next.js. Based in Irish Midlands.",
-  applicationName: "RuraMade Portfolio",
+  title: {
+    default: "Web Design & Websites in Ireland | RuraMade",
+    template: "%s | RuraMade",
+  },
+  description: defaultDescription,
+  applicationName: "RuraMade",
   manifest: "/site.webmanifest",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  ...(googleVerification
+    ? { verification: { google: googleVerification } }
+    : {}),
   openGraph: {
     type: "website",
-    title: "RuraMade | Websites & Integrations built to ship",
-    description:
-      "I build websites for small businesses that need to look professional and start getting enquiries — fast.",
+    locale: "en_IE",
+    title: "RuraMade — Web design & websites for businesses in Ireland",
+    description: defaultDescription,
     siteName: "RuraMade",
     images: [
       {
         url: "/og.jpg",
         width: 1200,
         height: 630,
-        alt: "RuraMade - Professional Web Development",
+        alt: "RuraMade — web design and website development in Ireland",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "RuraMade | High-Performance Websites",
-    description: "Websites for small businesses built to ship in 10 days.",
+    title: "RuraMade — Web design & websites in Ireland",
+    description: defaultDescription,
     images: ["/og.jpg"],
   },
   appleWebApp: {
@@ -90,7 +96,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en-IE">
       <body
         className={twMerge(
           inter.variable,

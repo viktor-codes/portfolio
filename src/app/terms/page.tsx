@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Terms",
-  description: "Website terms for using this site and contacting the owner.",
+  title: "Terms of Use",
+  description:
+    "Terms for using ruramade.dev and contacting RuraMade (Ireland).",
 };
 
 export default function TermsPage() {

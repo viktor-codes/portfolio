@@ -1,3 +1,4 @@
+import { HomeStructuredData } from "@/components/seo/home-structured-data";
 import { AboutSection } from "@/sections/About";
 import { ContactSection } from "@/sections/Contact";
 import { FaqSection } from "@/sections/Faq";
@@ -12,6 +13,7 @@ import { TapeSection } from "@/sections/Tape";
 export default function Home() {
   return (
     <div id="top">
+      <HomeStructuredData />
       <Header />
       <HeroSection />
       <ProjectsSection />
