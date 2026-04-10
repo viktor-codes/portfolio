@@ -30,7 +30,7 @@ export const HeroSection = () => {
           shouldSpin
           spinDuration="3s"
         >
-          <Braces className="/20 size-8 text-emerald-300" />
+          <Braces className="size-8 text-emerald-300/20" aria-hidden />
         </HeroOrbit>
         <HeroOrbit
           size={440}
@@ -40,10 +40,10 @@ export const HeroSection = () => {
           shouldSpin
           spinDuration="3s"
         >
-          <Braces className="/20 size-5 text-emerald-300" />
+          <Braces className="size-5 text-emerald-300/20" aria-hidden />
         </HeroOrbit>
         <HeroOrbit size={520} rotation={-41} shouldOrbit orbitDuration="34s">
-          <Cog className="/20 size-3 text-emerald-300" />
+          <Cog className="size-3 text-emerald-300/20" aria-hidden />
         </HeroOrbit>
         <HeroOrbit
           size={530}
@@ -53,7 +53,7 @@ export const HeroSection = () => {
           shouldSpin
           spinDuration="3s"
         >
-          <Braces className="/20 size-10 text-emerald-300" />
+          <Braces className="size-10 text-emerald-300/20" aria-hidden />
         </HeroOrbit>
         <HeroOrbit
           size={550}
@@ -63,7 +63,7 @@ export const HeroSection = () => {
           shouldSpin
           spinDuration="6s"
         >
-          <CodeXml className="size-12 text-emerald-300" />
+          <CodeXml className="size-12 text-emerald-300" aria-hidden />
         </HeroOrbit>
         <HeroOrbit
           size={590}
@@ -73,10 +73,10 @@ export const HeroSection = () => {
           shouldSpin
           spinDuration="6s"
         >
-          <CodeXml className="size-8 text-emerald-300" />
+          <CodeXml className="size-8 text-emerald-300" aria-hidden />
         </HeroOrbit>
         <HeroOrbit size={650} rotation={-5} shouldOrbit orbitDuration="42s">
-          <Cog className="/20 size-3 text-emerald-300" />
+          <Cog className="size-3 text-emerald-300/20" aria-hidden />
         </HeroOrbit>
         <HeroOrbit
           size={710}
@@ -86,10 +86,10 @@ export const HeroSection = () => {
           shouldSpin
           spinDuration="3s"
         >
-          <Braces className="/20 size-14 text-emerald-300" />
+          <Braces className="size-14 text-emerald-300/20" aria-hidden />
         </HeroOrbit>
         <HeroOrbit size={720} rotation={85} shouldOrbit orbitDuration="46s">
-          <Cog className="/20 size-3 text-emerald-300" />
+          <Cog className="size-3 text-emerald-300/20" aria-hidden />
         </HeroOrbit>
         <HeroOrbit
           size={800}
@@ -99,7 +99,7 @@ export const HeroSection = () => {
           shouldSpin
           spinDuration="6s"
         >
-          <CodeXml className="size-28 text-emerald-300" />
+          <CodeXml className="size-28 text-emerald-300" aria-hidden />
         </HeroOrbit>
       </div>
 
@@ -115,7 +115,7 @@ export const HeroSection = () => {
           </div>
         </div>
         <div className="mx-auto max-w-lg">
-          <h1 className="line-height-1.5 mt-6 text-balance text-center font-serif text-3xl tracking-wide md:text-5xl">
+          <h1 className="mt-6 text-balance text-center font-serif text-3xl leading-normal tracking-wide md:text-5xl">
             High-performance websites that get you
             <br />
             <span className="text-emerald-500">more customers</span>
