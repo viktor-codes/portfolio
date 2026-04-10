@@ -44,20 +44,6 @@ export const Footer = ({ showCookieSettings = true }: FooterProps) => {
         aria-hidden
       />
       <div className="container relative">
-        <div className="flex justify-center pb-6 pt-10 md:hidden">
-          <a
-            href="/#top"
-            className="mt-auto shrink-0 transition hover:opacity-90"
-          >
-            <Image
-              src="/ruramade-logo.svg"
-              alt="RuraMade"
-              width={150}
-              height={100}
-              className=""
-            />
-          </a>
-        </div>
         <div className="border-t border-white/15 pb-6 pt-10">
           <div className="grid grid-cols-2 gap-x-6 gap-y-10 sm:gap-x-10 md:grid-cols-3 md:gap-x-12">
             <div>
