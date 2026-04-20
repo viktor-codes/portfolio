@@ -1,7 +1,7 @@
 /** Public starter package — keep in sync with `public/ruramade-proposal.pdf`. */
 
-export const STARTER_OFFER_PDF_HREF = "/ruramade-proposal.pdf";
-export const STARTER_OFFER_PDF_FILENAME = "ruramade-proposal.pdf";
+export const STARTER_OFFER_PDF_HREF = "/Starter-Offer-Viktor-Rura.pdf";
+export const STARTER_OFFER_PDF_FILENAME = "Starter-Offer-Viktor-Rura.pdf";
 
 export const STARTER_OFFER_PRICE_EUR = 1500;
 export const STARTER_OFFER_DEPOSIT_EUR = 750;
