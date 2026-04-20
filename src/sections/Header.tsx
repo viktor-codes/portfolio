@@ -14,14 +14,14 @@ export const Header = () => {
       <div className="container relative z-[60] mx-auto flex items-center justify-between gap-3">
         <Link
           href="/#top"
-          className="relative z-[70] shrink-0 transition hover:opacity-90"
+          className="relative z-[70] inline-block shrink-0 transition hover:opacity-90"
         >
           <Image
             src="/ruramade-logo.svg"
             alt="RuraMade"
             width={176}
             height={33}
-            className="h-7 w-auto"
+            className="block h-7 w-auto"
             priority
           />
         </Link>
