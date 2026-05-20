@@ -110,7 +110,7 @@ export const HeroSection = () => {
               <div className="absolute inset-0 size-2.5 animate-ping-large rounded-full bg-green-500"></div>
             </div>
             <div className="text-sm font-medium lowercase tracking-wide">
-              3/4 SPOTS LEFT FOR APRIL
+              2/4 SPOTS LEFT FOR MAY
             </div>
           </div>
         </div>
