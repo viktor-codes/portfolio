@@ -105,14 +105,14 @@ export const HeroSection = () => {
 
       <div className="container">
         <div className="flex flex-col items-center">
-          <div className="inline-flex items-center gap-4 rounded-lg border border-gray-800 bg-gray-950 px-4 py-1.5">
+          {/* <div className="inline-flex items-center gap-4 rounded-lg border border-gray-800 bg-gray-950 px-4 py-1.5">
             <div className="relative size-2.5 rounded-full bg-green-500">
               <div className="absolute inset-0 size-2.5 animate-ping-large rounded-full bg-green-500"></div>
             </div>
-            {/* <div className="text-sm font-medium lowercase tracking-wide">
+            <div className="text-sm font-medium lowercase tracking-wide">
               4/4 SPOTS LEFT FOR MAY
-            </div> */}
-          </div>
+            </div>
+          </div> */}
         </div>
         <div className="mx-auto max-w-lg">
           <h1 className="mt-6 text-balance text-center font-serif text-3xl leading-normal tracking-wide md:text-5xl">
