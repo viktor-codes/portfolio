@@ -109,9 +109,9 @@ export const HeroSection = () => {
             <div className="relative size-2.5 rounded-full bg-green-500">
               <div className="absolute inset-0 size-2.5 animate-ping-large rounded-full bg-green-500"></div>
             </div>
-            <div className="text-sm font-medium lowercase tracking-wide">
-              2/4 SPOTS LEFT FOR MAY
-            </div>
+            {/* <div className="text-sm font-medium lowercase tracking-wide">
+              4/4 SPOTS LEFT FOR MAY
+            </div> */}
           </div>
         </div>
         <div className="mx-auto max-w-lg">
